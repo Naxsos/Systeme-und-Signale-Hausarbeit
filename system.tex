@@ -1,4 +1,44 @@
+
+
+\textbf{wir untersuchen das System mit den Parametern T1 Tt}
+\textbf{Eingabe des Systems in Computer Algebra (syms)}
+
+\textbf{Eingabe des Systems in Matlab}
+\section{Vorgehen in Regelungstechnik}
+Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientierung. Dieser Arbeit liegt die in der Vorlesung behandelte Vorgehensweise in der Regelungstechnik zugrunde, welche nachfolgend erläutert wird.
+
+\begin{enumerate}
+    \item Detaillierungsgrad für das System festlegen
+    \item Physikalisches Modell einschließlich der Störsignale erstellen
+    \item Eingangs-, Ausgangs-, Zustands- und Störgrößen des Systems festlegen
+    \item Physikalische Einheiten festlegen und ggf. Normierung in Prozent
+    \item Analyse des Modells
+    \begin{enumerate}
+        \item Ruhelagen, Anfangswerte, evtl. Linearisierung nichtlinearer Systeme
+        \item Systemeigenschaften ermitteln
+    \end{enumerate}
+    \item Entwurf
+    \begin{enumerate}
+        \item Ziele, Arbeitspunkte und Trajektorien festlegen
+        \item Entwurf: Struktur, Bereich, Verfahren und Kriterien
+    \end{enumerate}
+    \item Simulation und Rückinterpretation
+\end{enumerate}
+
 \section{Das System}
+
+
+\subsection{Eigenschaften des Systems}
+
+Folgend eine Liste der Eigenschaften des Systems, die sich aus der Übertragungsfunktion $G(s)$ ergibt:
+
+\begin{itemize}
+    \item Nennergrad - Zählergrad = 1, dadruch ist das System nicht sprungfähig, antwortet aber sofort mit einer Steigung. Außerdem ist die $D-Matrix$ (welche einem Sprung am Anfang ensprechen würde) $0$.
+    \item Ein $PT_3$-Glieder
+    \item P-Verhalten mit positiver Verstärkung
+    \item gerade Anzahl nicht-minimalphasige rechtsseitiger Nullstellen: Dadurch antwortet das System erst falsch
+    \item es gibt 3 reelle negative Polstellen, somit ist das System stabil
+\end{itemize}
 
 \subsection{Die Übertragungsfunktion}
 
@@ -13,19 +53,9 @@ Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript anal
     &=& \frac{6s^2 - 5s + 1}{120s^3 + 74s^2 + 15s +1}
 \end{eqnarray}
 
-\subsection{Eigenschaften des Systems}
+\section{Darstellungsformen des Systems}
 
-Folgend eine Liste der Eigenschaften des Systems, die sich aus der Übertragungsfunktion $G(s)$ ergibt:
-
-\begin{itemize}
-    \item Nennergrad - Zählergrad = 1, dadruch ist das System nicht sprungfähig, antwortet aber sofort mit einer Steigung. Außerdem ist die $D-Matrix$ (welche einem Sprung am Anfang ensprechen würde) $0$.
-    \item Ein $PT_3$-Glieder
-    \item P-Verhalten mit positiver Verstärkung
-    \item gerade Anzahl nicht-minimalphasige rechtsseitiger Nullstellen: Dadurch antwortet das System erst falsch
-    \item es gibt 3 reelle negative Polstellen, somit ist das System stabil
-\end{itemize}
-
-\section{Andere Darstellungsformen des Systems}
+\subsection{Explizite Darstellung des Übertragungsoperators}
 
 \subsection{Eingangs-Ausgang Differentialgleichung}
 
@@ -36,15 +66,61 @@ Folgend eine Liste der Eigenschaften des Systems, die sich aus der Übertragungs
 \end{eqnarray*}
 
 \subsection{Zustandsraumdarstellung}
+Das soll man iwie unter 2b einordnen?
 
-Die allgemeine Form der Zustandsraumdarstellung ist in den folgenden zwei Zeilen zu sehen.
+Die allgemeine Form der Zustandsraumdarstellung lautet:
 
-\begin{eqnarray*}
-    \dot x &=& Ax + Bu \nonumber \\
-    y &=& Cx
-\end{eqnarray*}
+\begin{align*}
+    \dot x & = Ax + Bu \nonumber \\
+    y & = Cx + Du
+\end{align*}
 
-\subsubsection{originale Zustandsraumdarstellung}
+Für unser System sieht dies folgendermaßen aus:
+
+
+\begin{subequations}
+    \begin{align}
+        \dot x & = \begin{bmatrix}
+            -1
+        \end{bmatrix}x + \begin{bmatrix}
+            2
+        \end{bmatrix}u \\
+        y & = \begin{bmatrix}
+            1.5
+        \end{bmatrix}x + \begin{bmatrix}
+            0
+        \end{bmatrix}u
+    \end{align}
+\end{subequations}
+
+Man kann auch die Zustandsraumdarstellung direkt eingeben, indem man man die Matrizen $A, B, C, D$ belegt und den Befehl \texttt{sys = ss(A, B, C, D)} ausführt. Von hier aus kommt man mit \texttt{tf(sys)} wieder zur Übertragungsfunktion.
+
+Die Zustandsraumdarstellung kann aus der Übertragungsfunktion in einfachen Fällen mit dem Substitutionstrick erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden.
+Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $d$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter. (Weiß Hr. Groell auch nicht)
+
+ACHTUNG: Beim Erstellen dieses Dokuments hatte ich zuerst die ANfangswerte vergessen! Das passiert mir in der Klausur nicht, da sonst ein Punkt weg ist !AUSRUFEZEICHEN!11!!1!
+Die Anfangswerte werden für die Simulation natürlich benötigt, weil die Funktion wissen muss, wo sie startet.
+Die Anfangswerte müssen mit den Anfangswerten der Ein-  Ausgangsdarstellung korrespondieren. 
+Das bedeutet $y(0) = CX(0^-) + D(0^-)$
+
+$ \dot y(0^-) = CAx(0^-) + CBu(0^-) + D \dot u (0^-)$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Originale Zustandsraumdarstellung}
 
 Dabei ist eine Möglichkeit Variante in der Zustandsraumdarstellung das zu behandelnde System zu beschreiben die Folgende:
 
@@ -82,7 +158,7 @@ In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Fun
 \begin{figure}[H]
     \label{fig:sprung}
     \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/Sprungantwort.eps}
+    \includegraphics[width=0.8\textwidth]{Bilder/SprungantwortPT1Tt.eps}
     \caption{Sprungantwort}
  \end{figure}
 
