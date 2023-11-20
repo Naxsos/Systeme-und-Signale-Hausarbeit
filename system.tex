@@ -23,7 +23,7 @@ Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientieru
 
 
 \subsection{Eigenschaften des Systems}
-Wir untersuchen ein System mit Nennergrad 1, einer Totzeit $t$ und einem propoertionalen Übertragungsverhalten. Daraus ergibt sich die Bezeichnung $PT_{1}T_{t}$.
+Wir untersuchen ein System mit Nennergrad 1, einer Totzeit $t$ und einem proportionalen Übertragungsverhalten. Daraus ergibt sich die Bezeichnung $PT_{1}T_{t}$.
 
 \subsection{Die Übertragungsfunktion}
 
@@ -49,18 +49,13 @@ In beiden Fällen wird in MATLAB damit die Formel \ref{eq:G(s)_3} dargestellt.
 \subsection{Explizite Darstellung des Übertragungsoperators}
 
 \subsection{Zustandsraumdarstellung}
-\subsubsection{Integralgleichung}
-\subsubsection{Differentialgleichung}
-
 Die allgemeine Form der Zustandsraumdarstellung lautet:
-
 \begin{align*}
     \dot x & = Ax + Bu \nonumber \\
     y & = Cx + Du
 \end{align*}
 
-Für unser System sieht dies folgendermaßen aus:
-
+Mit dem MATLAB-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet MATLAB automatisch die Werte für unser System. Somit sieht die Zustandsraumdarstellung hier folgendermaßen aus:
 
 \begin{subequations}
     \begin{align}
@@ -77,10 +72,13 @@ Für unser System sieht dies folgendermaßen aus:
     \end{align}
 \end{subequations}
 
+
 Man kann auch die Zustandsraumdarstellung direkt eingeben, indem man man die Matrizen $A, B, C, D$ belegt und den Befehl \texttt{sys = ss(A, B, C, D)} ausführt. Von hier aus kommt man mit \texttt{tf(sys)} wieder zur Übertragungsfunktion.
 
-Die Zustandsraumdarstellung kann aus der Übertragungsfunktion in einfachen Fällen mit dem Substitutionstrick erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden.
-Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $d$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter. (Weiß Hr. Groell auch nicht)
+Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
+
+\subsubsection{Integralgleichung}
+\subsubsection{Differentialgleichung}
 
 ACHTUNG: Beim Erstellen dieses Dokuments hatte ich zuerst die ANfangswerte vergessen! Das passiert mir in der Klausur nicht, da sonst ein Punkt weg ist !AUSRUFEZEICHEN!11!!1!
 Die Anfangswerte werden für die Simulation natürlich benötigt, weil die Funktion wissen muss, wo sie startet.
