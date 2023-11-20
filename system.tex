@@ -116,9 +116,23 @@ Hier müssen wir noch unsere Formel einsetzen!!!
 \begin{eqnarray*}
     G(s) =\frac{Y(s)}{U(s)} &=& \frac{6s^2 - 5s + 1}{120s^3 + 74s^2 + 15s +1} \\
     Y(s)(120s^3 + 74s^2 + 15s +1) &=& U(s) (6s^2 - 5s + 1) \\
-    120 \dddot y + 74 \ddot y + 15 \dot y &=& 6 \ddot u + 5 \dot u + u
+    120 \dddot y + 74 \ddot y + 15 \dot y &=& 6 \ddot u + 5 \dot u + u \\
 \end{eqnarray*}
 
+\begin{eqnarray*}
+    G(s) &=& \frac{3}{1 + s} * e^{-2s}\\
+    G_{PT1}(s) =\frac{Y(s)}{U(s)} &=& \frac{3}{1 + s} \\
+    Y(s)(1+s) &=& (3) * U(s) \\
+    Y(s) + Y(s) *s &=& 3*U(s) \\
+    \dot y(t) + y(t) &=& 3 * u(t) 
+\end{eqnarray*}
+Es gilt für ein ein Totzeitglied: $y(t) = u(t-T_t)$
+Daraus folgt für $u(t)$ aus einer Totzeit $T_t = 2$ für die Ein-/Ausgangsdifferenzialgleichung:
+\begin{eqnarray*}
+    \dot y(t) + y(t) &=& 3 * u(t-2) 
+\end{eqnarray*}
+
+-> Niklas ergibt das Sinn? 
 \subsection{Übertragungsfunktion}
 Entweder wir streichen das erste kapitel und schreiben hier den Kram hin, oder iwie doppelt, oder ne andere Lösung -> Theresa ist gefragt!
 
