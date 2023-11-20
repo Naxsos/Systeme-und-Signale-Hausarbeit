@@ -195,7 +195,15 @@ Im Bode-Diagramm sind der Betrag des Frequenzgangs über $\omega$ in Dezibel(dB)
  \end{figure}
 
 \subsection{Statische Kennlinie}
-Keine Ahnung
+Da es sich bei unserem System um ein System mit proportionalen Übertragungsverhalten handelt, entspricht die statische Verstärkung $K = G(0)$ bzw. $K = \lim_{t\to \infty} h(t)$. Somit ergibt sich bei unserem System eine Verstärkung von 3, weshalb die statische Kennlinie nur eine konstante Funktion ist. Mithilfe des MATLAB-Befehls \texttt{fplot(3)} lässt sich das graphisch darstellen. 
+
+
+\begin{figure}[H]
+    \label{fig:staticCurve}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/StaticCurvePT1Tt.eps}
+    \caption{Statische Kennlinie}
+ \end{figure}
 
 \subsection{Pol-Nulstellen-Plot}
 \autoref{fig:poleZero} zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende MATLAB-Befehl hierfür lautet \texttt{pzplot(sys)}. MATLAB markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems. In unserem Beispiel hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist.
