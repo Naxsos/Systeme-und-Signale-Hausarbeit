@@ -1,0 +1,19 @@
+
+\begin{figure}[H]
+    \label{fig:sprung}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/SprungantwortPT1Tt.eps}
+    \caption{Sprungantwort}
+ \end{figure}
+
+
+\subsection{Frequenzgang(G(j omega))}
+Dieses und die folgenden Kapitel sind in meinen Mitschrieben als 5a, 5b und 5c zusammengefasst.
+
+\subsection{Ortskurve(Nyquist-Plot)}
+
+\subsection{Bode-Diagramm}
+
+\subsection{Statische Kennlinie}
+
+\subsection{Pol-Nulstellen-Plot}

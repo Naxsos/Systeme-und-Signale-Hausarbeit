@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.23)  17 NOV 2023 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.23)  20 NOV 2023 12:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -312,51 +312,97 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip52
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count293
+)
+\csq@reset=\count294
+\csq@gtype=\count295
+\csq@glevel=\count296
+\csq@qlevel=\count297
+\csq@maxlvl=\count298
+\csq@tshold=\count299
+\csq@ltx@everypar=\toks33
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2021-02-22 v5.2l csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count300
+\lst@gtempboxa=\box56
+\lst@token=\toks34
+\lst@length=\count301
+\lst@currlwidth=\dimen167
+\lst@column=\count302
+\lst@pos=\count303
+\lst@lostspace=\dimen168
+\lst@width=\dimen169
+\lst@newlines=\count304
+\lst@lineno=\count305
+\lst@maxwidth=\dimen170
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count306
+\lst@skipnumbers=\count307
+\lst@framebox=\box57
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count293
-\l__pdf_internal_box=\box56
+\l__color_backend_stack_int=\count308
+\l__pdf_internal_box=\box58
 ) (./main.aux (./system.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
  (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count294
-\scratchdimen=\dimen167
-\scratchbox=\box57
-\nofMPsegments=\count295
-\nofMParguments=\count296
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count297
-\MPscratchDim=\dimen168
-\MPnumerator=\count298
-\makeMPintoPDFobject=\count299
-\everyMPtoPDFconversion=\toks34
+\scratchcounter=\count309
+\scratchdimen=\dimen171
+\scratchbox=\box59
+\nofMPsegments=\count310
+\nofMParguments=\count311
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count312
+\MPscratchDim=\dimen172
+\MPnumerator=\count313
+\makeMPintoPDFobject=\count314
+\everyMPtoPDFconversion=\toks36
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 23.
+Package hyperref Info: Link coloring OFF on input line 24.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -364,27 +410,43 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count300
+\c@section@level=\count315
 )
-LaTeX Info: Redefining \ref on input line 23.
-LaTeX Info: Redefining \pageref on input line 23.
-LaTeX Info: Redefining \nameref on input line 23.
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
+LaTeX Info: Redefining \nameref on input line 24.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
+\c@lstlisting=\count316
  [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 \openout2 = `system.aux'.
 
- (./system.tex [2
-
-]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 96.
+ (./system.tex
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 43.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [3] [4]
+) [2
+
+] [3]
+Package epstopdf Info: Source file: <Bilder/ImpulsAntwortPT1Tt.eps>
+(epstopdf)                    date: 2023-11-17 09:49:02
+(epstopdf)                    size: 38923 bytes
+(epstopdf)             Output file: <Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-11-20 09:55:41
+(epstopdf)                    size: 35016 bytes
+(epstopdf)             Command: <repstopdf --outfile=Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf Bilder/ImpulsAntwortPT1Tt.eps>
+(epstopdf)             \includegraphics on input line 126.
+Package epstopdf Info: Output file is already uptodate.
+<Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf, id=130, 562.1pt x 421.575pt>
+File: Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
+<use Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf>
+Package pdftex.def Info: Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf  used on input line 126.
+(pdftex.def)             Requested size: 276.00105pt x 206.99811pt.
+ [4]
 Package epstopdf Info: Source file: <Bilder/SprungantwortPT1Tt.eps>
 (epstopdf)                    date: 2023-11-17 09:08:04
 (epstopdf)                    size: 36903 bytes
@@ -392,103 +454,92 @@ Package epstopdf Info: Source file: <Bilder/SprungantwortPT1Tt.eps>
 (epstopdf)                    date: 2023-11-17 09:08:24
 (epstopdf)                    size: 33494 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/SprungantwortPT1Tt-eps-converted-to.pdf Bilder/SprungantwortPT1Tt.eps>
-(epstopdf)             \includegraphics on input line 161.
+(epstopdf)             \includegraphics on input line 155.
 Package epstopdf Info: Output file is already uptodate.
-<Bilder/SprungantwortPT1Tt-eps-converted-to.pdf, id=134, 562.1pt x 421.575pt>
+<Bilder/SprungantwortPT1Tt-eps-converted-to.pdf, id=141, 562.1pt x 421.575pt>
 File: Bilder/SprungantwortPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/SprungantwortPT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/SprungantwortPT1Tt-eps-converted-to.pdf  used on input line 161.
+Package pdftex.def Info: Bilder/SprungantwortPT1Tt-eps-converted-to.pdf  used on input line 155.
 (pdftex.def)             Requested size: 276.00105pt x 206.99811pt.
-Package epstopdf Info: Source file: <Bilder/ImpulsAntwort.eps>
-(epstopdf)                    date: 2023-11-06 10:17:21
-(epstopdf)                    size: 44713 bytes
-(epstopdf)             Output file: <Bilder/ImpulsAntwort-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-11-17 09:06:57
-(epstopdf)                    size: 81429 bytes
-(epstopdf)             Command: <repstopdf --outfile=Bilder/ImpulsAntwort-eps-converted-to.pdf Bilder/ImpulsAntwort.eps>
-(epstopdf)             \includegraphics on input line 183.
+ [5 <./Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\omega' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 160.
+
+Package epstopdf Info: Source file: <Bilder/NyquistPT1Tt.eps>
+(epstopdf)                    date: 2023-11-20 10:45:31
+(epstopdf)                    size: 47406 bytes
+(epstopdf)             Output file: <Bilder/NyquistPT1Tt-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-11-20 10:45:33
+(epstopdf)                    size: 121916 bytes
+(epstopdf)             Command: <repstopdf --outfile=Bilder/NyquistPT1Tt-eps-converted-to.pdf Bilder/NyquistPT1Tt.eps>
+(epstopdf)             \includegraphics on input line 174.
 Package epstopdf Info: Output file is already uptodate.
-<Bilder/ImpulsAntwort-eps-converted-to.pdf, id=136, 562.1pt x 421.575pt>
-File: Bilder/ImpulsAntwort-eps-converted-to.pdf Graphic file (type pdf)
-<use Bilder/ImpulsAntwort-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/ImpulsAntwort-eps-converted-to.pdf  used on input line 183.
+<Bilder/NyquistPT1Tt-eps-converted-to.pdf, id=163, 562.1pt x 421.575pt>
+File: Bilder/NyquistPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
+<use Bilder/NyquistPT1Tt-eps-converted-to.pdf>
+Package pdftex.def Info: Bilder/NyquistPT1Tt-eps-converted-to.pdf  used on input line 174.
 (pdftex.def)             Requested size: 276.00105pt x 206.99811pt.
- [5 <./Bilder/SprungantwortPT1Tt-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Bilder/Kennlinie.eps>
-(epstopdf)                    date: 2023-11-06 10:17:21
-(epstopdf)                    size: 15901 bytes
-(epstopdf)             Output file: <Bilder/Kennlinie-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-11-17 09:06:57
-(epstopdf)                    size: 5287 bytes
-(epstopdf)             Command: <repstopdf --outfile=Bilder/Kennlinie-eps-converted-to.pdf Bilder/Kennlinie.eps>
-(epstopdf)             \includegraphics on input line 204.
+[6 <./Bilder/SprungantwortPT1Tt-eps-converted-to.pdf>]
+<Bilder/NyquistCursorPT1Tt.png, id=180, 662.475pt x 496.85625pt>
+File: Bilder/NyquistCursorPT1Tt.png Graphic file (type png)
+<use Bilder/NyquistCursorPT1Tt.png>
+Package pdftex.def Info: Bilder/NyquistCursorPT1Tt.png  used on input line 183.
+(pdftex.def)             Requested size: 276.00105pt x 206.99512pt.
+ [7 <./Bilder/NyquistPT1Tt-eps-converted-to.pdf> <./Bilder/NyquistCursorPT1Tt.png>]
+Package epstopdf Info: Source file: <Bilder/BodePT1Tt.eps>
+(epstopdf)                    date: 2023-11-20 11:07:55
+(epstopdf)                    size: 31137 bytes
+(epstopdf)             Output file: <Bilder/BodePT1Tt-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-11-20 11:08:17
+(epstopdf)                    size: 11489 bytes
+(epstopdf)             Command: <repstopdf --outfile=Bilder/BodePT1Tt-eps-converted-to.pdf Bilder/BodePT1Tt.eps>
+(epstopdf)             \includegraphics on input line 195.
 Package epstopdf Info: Output file is already uptodate.
-<Bilder/Kennlinie-eps-converted-to.pdf, id=153, 562.1pt x 421.575pt>
-File: Bilder/Kennlinie-eps-converted-to.pdf Graphic file (type pdf)
-<use Bilder/Kennlinie-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/Kennlinie-eps-converted-to.pdf  used on input line 204.
-(pdftex.def)             Requested size: 172.5pt x 129.37462pt.
- [6 <./Bilder/ImpulsAntwort-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Bilder/PoleZeroPlot.eps>
-(epstopdf)                    date: 2023-11-06 10:17:21
-(epstopdf)                    size: 42882 bytes
-(epstopdf)             Output file: <Bilder/PoleZeroPlot-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-11-17 09:06:57
-(epstopdf)                    size: 42408 bytes
-(epstopdf)             Command: <repstopdf --outfile=Bilder/PoleZeroPlot-eps-converted-to.pdf Bilder/PoleZeroPlot.eps>
-(epstopdf)             \includegraphics on input line 220.
-Package epstopdf Info: Output file is already uptodate.
-<Bilder/PoleZeroPlot-eps-converted-to.pdf, id=167, 562.1pt x 421.575pt>
-File: Bilder/PoleZeroPlot-eps-converted-to.pdf Graphic file (type pdf)
-<use Bilder/PoleZeroPlot-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/PoleZeroPlot-eps-converted-to.pdf  used on input line 220.
+<Bilder/BodePT1Tt-eps-converted-to.pdf, id=195, 562.1pt x 421.575pt>
+File: Bilder/BodePT1Tt-eps-converted-to.pdf Graphic file (type pdf)
+<use Bilder/BodePT1Tt-eps-converted-to.pdf>
+Package pdftex.def Info: Bilder/BodePT1Tt-eps-converted-to.pdf  used on input line 195.
 (pdftex.def)             Requested size: 276.00105pt x 206.99811pt.
-Package epstopdf Info: Source file: <Bilder/Bode.eps>
-(epstopdf)                    date: 2023-11-06 10:17:21
-(epstopdf)                    size: 25581 bytes
-(epstopdf)             Output file: <Bilder/Bode-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-11-17 09:06:58
-(epstopdf)                    size: 10598 bytes
-(epstopdf)             Command: <repstopdf --outfile=Bilder/Bode-eps-converted-to.pdf Bilder/Bode.eps>
-(epstopdf)             \includegraphics on input line 232.
+Package epstopdf Info: Source file: <Bilder/PoleZeroPT1Tt.eps>
+(epstopdf)                    date: 2023-11-20 11:34:13
+(epstopdf)                    size: 42034 bytes
+(epstopdf)             Output file: <Bilder/PoleZeroPT1Tt-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-11-20 11:35:43
+(epstopdf)                    size: 41857 bytes
+(epstopdf)             Command: <repstopdf --outfile=Bilder/PoleZeroPT1Tt-eps-converted-to.pdf Bilder/PoleZeroPT1Tt.eps>
+(epstopdf)             \includegraphics on input line 208.
 Package epstopdf Info: Output file is already uptodate.
-<Bilder/Bode-eps-converted-to.pdf, id=169, 562.1pt x 421.575pt>
-File: Bilder/Bode-eps-converted-to.pdf Graphic file (type pdf)
-<use Bilder/Bode-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/Bode-eps-converted-to.pdf  used on input line 232.
+<Bilder/PoleZeroPT1Tt-eps-converted-to.pdf, id=197, 562.1pt x 421.575pt>
+File: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
+<use Bilder/PoleZeroPT1Tt-eps-converted-to.pdf>
+Package pdftex.def Info: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf  used on input line 208.
 (pdftex.def)             Requested size: 276.00105pt x 206.99811pt.
- [7 <./Bilder/Kennlinie-eps-converted-to.pdf> <./Bilder/PoleZeroPlot-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Bilder/Nyquist.eps>
-(epstopdf)                    date: 2023-11-06 10:17:21
-(epstopdf)                    size: 47518 bytes
-(epstopdf)             Output file: <Bilder/Nyquist-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-11-17 09:06:58
-(epstopdf)                    size: 46896 bytes
-(epstopdf)             Command: <repstopdf --outfile=Bilder/Nyquist-eps-converted-to.pdf Bilder/Nyquist.eps>
-(epstopdf)             \includegraphics on input line 243.
-Package epstopdf Info: Output file is already uptodate.
-<Bilder/Nyquist-eps-converted-to.pdf, id=189, 562.1pt x 421.575pt>
-File: Bilder/Nyquist-eps-converted-to.pdf Graphic file (type pdf)
-<use Bilder/Nyquist-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/Nyquist-eps-converted-to.pdf  used on input line 243.
-(pdftex.def)             Requested size: 276.00105pt x 206.99811pt.
-) [8 <./Bilder/Bode-eps-converted-to.pdf>] [9 <./Bilder/Nyquist-eps-converted-to.pdf>] (./main.aux (./system.aux))
+) [8 <./Bilder/BodePT1Tt-eps-converted-to.pdf>] [9 <./Bilder/PoleZeroPT1Tt-eps-converted-to.pdf>] (./main.aux (./system.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BD797B6A95BD6BDC4114C362B835AE66;3384.
+(rerunfilecheck)             Checksum: 0C8C4FA2080BB46F43CBDC0479E24975;3548.
  ) 
 Here is how much of TeX's memory you used:
- 12710 strings out of 478268
- 215203 string characters out of 5846347
- 550973 words of memory out of 5000000
- 30643 multiletter control sequences out of 15000+600000
- 481472 words of font info for 54 fonts, out of 8000000 for 9000
+ 15233 strings out of 478268
+ 250882 string characters out of 5846347
+ 594760 words of memory out of 5000000
+ 33131 multiletter control sequences out of 15000+600000
+ 481137 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,13n,92p,512b,366s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (9 pages, 461142 bytes).
+ 94i,13n,92p,674b,994s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (9 pages, 532826 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
+ 306 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
  195 words of extra memory for PDF output out of 10000 (max. 10000000)
 

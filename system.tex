@@ -1,9 +1,3 @@
-
-
-\textbf{wir untersuchen das System mit den Parametern T1 Tt}
-\textbf{Eingabe des Systems in Computer Algebra (syms)}
-
-\textbf{Eingabe des Systems in Matlab}
 \section{Vorgehen in Regelungstechnik}
 Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientierung. Dieser Arbeit liegt die in der Vorlesung behandelte Vorgehensweise in der Regelungstechnik zugrunde, welche nachfolgend erläutert wird.
 
@@ -29,44 +23,34 @@ Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientieru
 
 
 \subsection{Eigenschaften des Systems}
-
-Folgend eine Liste der Eigenschaften des Systems, die sich aus der Übertragungsfunktion $G(s)$ ergibt:
-
-\begin{itemize}
-    \item Nennergrad - Zählergrad = 1, dadruch ist das System nicht sprungfähig, antwortet aber sofort mit einer Steigung. Außerdem ist die $D-Matrix$ (welche einem Sprung am Anfang ensprechen würde) $0$.
-    \item Ein $PT_3$-Glieder
-    \item P-Verhalten mit positiver Verstärkung
-    \item gerade Anzahl nicht-minimalphasige rechtsseitiger Nullstellen: Dadurch antwortet das System erst falsch
-    \item es gibt 3 reelle negative Polstellen, somit ist das System stabil
-\end{itemize}
+Wir untersuchen ein System mit Nennergrad 1, einer Totzeit $t$ und einem propoertionalen Übertragungsverhalten. Daraus ergibt sich die Bezeichnung $PT_{1}T_{t}$.
 
 \subsection{Die Übertragungsfunktion}
 
-Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript analysiert wird. Formel \ref{eq:G(s)_3} zeigt dann die ausmultiplizierte Formel, sodass die Eigenschaften des Systems leichter zu lesen sind.
+Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript analysiert wird. Formel \ref{eq:G(s)_3} zeigt eine etwas andere Darstellung der Formel, sodass die Eigenschaften des Systems leichter abzulesen sind.
 
 \begin{eqnarray}
     \label{eq:G(s)_1}
     G(s) &=& \frac{Y(s)}{U(s)} \\
     \label{eq:G(s)_2}
-    &=& \frac{(1-2s)(1-3s)}{(1+4s)(1+5s)(1+6s)} \\
+    &=& \frac{3 * e^{-2s}}{(1+s)} \\
     \label{eq:G(s)_3}
-    &=& \frac{6s^2 - 5s + 1}{120s^3 + 74s^2 + 15s +1}
+    &=& \frac{3}{1 + s} * e^{-2s}
 \end{eqnarray}
+
+\subsection{Eingabe in MATLAB}
+Für die Eingabe der Übertragungsfunktion in MATLAB gibt es zwei Möglichkeiten. \\
+In manueller Eingabe schreibt man \texttt{G(s) =  3 / (1 + s) * exp(-2 * s)}. \\
+In Computer-Algebra wird der Befehl \texttt{sys = tf([3], [1, 1],\textquotedbl IODelay\textquotedbl, 2)} benötigt. Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$ bzw. $s^1$ (im Nenner) angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s)}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \enquote{IODelay}, mit dem die Totzeit $t = 2$ angegeben wird.\\
+In beiden Fällen wird in MATLAB damit die Formel \ref{eq:G(s)_3} dargestellt.
 
 \section{Darstellungsformen des Systems}
 
 \subsection{Explizite Darstellung des Übertragungsoperators}
 
-\subsection{Eingangs-Ausgang Differentialgleichung}
-
-\begin{eqnarray*}
-    G(s) =\frac{Y(s)}{U(s)} &=& \frac{6s^2 - 5s + 1}{120s^3 + 74s^2 + 15s +1} \\
-    Y(s)(120s^3 + 74s^2 + 15s +1) &=& U(s) (6s^2 - 5s + 1) \\
-    120 \dddot y + 74 \ddot y + 15 \dot y &=& 6 \ddot u + 5 \dot u + u
-\end{eqnarray*}
-
 \subsection{Zustandsraumdarstellung}
-Das soll man iwie unter 2b einordnen?
+\subsubsection{Integralgleichung}
+\subsubsection{Differentialgleichung}
 
 Die allgemeine Form der Zustandsraumdarstellung lautet:
 
@@ -105,55 +89,65 @@ Das bedeutet $y(0) = CX(0^-) + D(0^-)$
 
 $ \dot y(0^-) = CAx(0^-) + CBu(0^-) + D \dot u (0^-)$
 
+\subsection{Eingangs-Ausgang Differentialgleichung}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{Originale Zustandsraumdarstellung}
-
-Dabei ist eine Möglichkeit Variante in der Zustandsraumdarstellung das zu behandelnde System zu beschreiben die Folgende:
+Dieses und das folgende Kapitel sind bei meinen Mitschrieben als 3a und 3b zusammengefasst
 
 \begin{eqnarray*}
-    \dot x &=& \left(\begin{array}{ccc} -0.6167 & -0.25 & -0.1333\\ 0.5 & 0 & 0\\ 0 & 0.125 & 0 \end{array}\right) x + \left(\begin{array}{c} 0.5\\ 0\\ 0 \end{array}\right) u  \nonumber \\
-    y &=& \left(\begin{array}{ccc} 0.1 & -0.1667 & 0.2667 \end{array}\right) x
+    G(s) =\frac{Y(s)}{U(s)} &=& \frac{6s^2 - 5s + 1}{120s^3 + 74s^2 + 15s +1} \\
+    Y(s)(120s^3 + 74s^2 + 15s +1) &=& U(s) (6s^2 - 5s + 1) \\
+    120 \dddot y + 74 \ddot y + 15 \dot y &=& 6 \ddot u + 5 \dot u + u
 \end{eqnarray*}
 
-\subsubsection{Ähnlichkeitstransformation}
+\subsection{Übertragungsfunktion}
+Entweder wir streichen das erste kapitel und schreiben hier den Kram hin, oder iwie doppelt, oder ne andere Lösung -> Theresa ist gefragt!
 
-Durch eine Ähnlichkeitstransformation können mit der Hilfmatrix $T$ in \ref{eq:T} folgenden Matrizen in der Zustandsraumdarstellung erzeugt werden.
-
-\begin{equation*}
-    \label{eq:T}
-    T = \left(\begin{array}{ccc} 1 & 2 & 3\\ 0 & 1 & 3\\ 9 & 0 & 1 \end{array}\right)
-\end{equation*} 
-
-\begin{eqnarray*}
-    \dot x &=& \left(\begin{array}{ccc} 0.1771 & -0.2292 & 0.02292\\ 0.3795 & -0.3839 & 0.01339\\ -1.862 & 1.598 & -0.4098 \end{array}\right)x + \left(\begin{array}{c} 0.5\\ 0\\ 4.5 \end{array}\right)u \\
-    y &=& \left(\begin{array}{ccc} -0.2429 & 0.319 & 0.0381 \end{array}\right)x
-\end{eqnarray*}
+\subsection{Gewichtsfunktion g(t) (Impulsantwort)}
+Dieses und das folgende Kapitel sind bei meinen Mitschrieben als 4a und 4b zusammengefasst
 
 
+In Abbildung \ref{fig:impuls} ist die Reaktion des Systems auf technischen Eingangssprung zu sehen.
+\\
+In MATLAB lässt sich das mit dem Befehl \texttt{impulse(sys)} simulieren, wodurch man die numerische Lösung erhält. In MATLAB lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
+\begin{lstlisting}
+    syms g(t)
+    g(t) = ilaplace(H(s))
+    t = [0:0.1:8]
+    plot(t, g(t))
+\end{lstlisting}
 
-\section{Simulation des Systems}
+Beide Befehle führen zum folgenden Graphen:
 
-\subsection{Sprungantwort}
+
+
+\begin{figure}[H]
+    \label{fig:impuls}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/ImpulsAntwortPT1Tt.eps}
+    \caption{Impulsantwort}
+ \end{figure}
+
+
+
+\subsection{Übergangsfunktion h(t) (Sprungantwort)}
 
 In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Funktion zu sehen. Diese ist wie folgt definiert:
 
 \[
 \sigma (t) = \begin{cases} 0 & \text{für t < 0} \\ 1 & \text{für t > 0} \end{cases}  
 \]
+\\
+In MATLAB lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
+
+\begin{lstlisting}
+    H(s) = G(s) / s
+    syms h(t)
+    h(t) = ilaplace(H(s))
+    t = [0:0.1:8]
+    plot(t, h(t))
+\end{lstlisting} 
+
+Beide Befehle führen zum folgenden Graphen:
 
 \begin{figure}[H]
     \label{fig:sprung}
@@ -163,83 +157,54 @@ In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Fun
  \end{figure}
 
 
-\subsection{Impulsantwort}
+\subsection{Frequenzgang ($G(j * \omega)$)}
+Dieses und die folgenden Kapitel sind in meinen Mitschrieben als 5a, 5b und 5c zusammengefasst.
 
-In Abbildung \ref{fig:impuls} ist die Reaktion des Systems auf den Dirac-Funktion zu sehen. Die Dirac-Funktion ist die Ableitung der Heaviside-Funktion und definiert durch:
+Zum Frequenzgang $G(j * \omega)$ gelangt man, indem man in $G(s)$ das $s$ durch $j * \omega$ ersetzt.
 
-\[
-    \delta (t) \stackrel{D'}{=} \frac{d}{dt} \sigma (t)
-\]
+Das bedeutet, das für jede Frequzenz $\omega$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder mit Betrag und Phase darstellt.
 
-Die wichtigste Eigenschaft der Dirac-Funktion ist, dass die Fläche unter dem Impuls exakt $1$ ist. Daraus folgt:
-
-\[
-    \int_{-\infty}^\infty \delta (t) dx = 1
-\]
-
-\begin{figure}[H]
-    \label{fig:impuls}
-    \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/ImpulsAntwort.eps}
-    \caption{Impulsantwort}
-\end{figure}
-
-\subsection{explizite Lösung}
-
-Durch die inverse Laplacetransformation lässt sich die explizite Lösung des Systems für die Impulsfunktion als Eingangssignal ermitteln.
-
-\[
-    L^{-1}\{\frac{6s^2 - 5s + 1}{120s^3 + 74s^2 + 15s +1}\} = \frac{21\,{\mathrm{e}}^{-\frac{t}{4}}}{4}-\frac{56\,{\mathrm{e}}^{-\frac{t}{5}}}{5}+6\,{\mathrm{e}}^{-\frac{t}{6}}
-\]
-
-
-\subsection{statischer Verstärkungsfaktor}
-
-Wie in Abbildung \ref{fig:sprung} zu sehen pendelt sich der Ausgang des System bei $1$ ein. Das passiert, weil $ k = 1$ ist.
-Ein Graph des Verstärkungsfaktor, wobei auf der $x-Achse$ die konstanten Eingänge und auf der $y-Achse$ die Ausgänge des Systems für $t \rightarrow \infty$.
-
-\begin{figure}[H]
-    \label{fig:Kennline}
-    \centering
-    \includegraphics[width=0.5\textwidth]{Bilder/Kennlinie.eps}
-    \caption{statischer Verstärkungsfaktor}
-\end{figure}
-
-
-\section{Verhalten bei Schwingungseingängen}
-
-\subsection{Nullstellen und Pole}
-
-Abbildung \ref{fig:pzmap} zeigt einen Pole-Zero-Plot zu dem System, welcher als \textbf{x} markiert die Nullstellen des Systems und mit \textbf{o} markiert die Polstellen des System zeigt.
-
-Das System hat 3 Polstellen auf der reellen Achse in der linken Halbebene, was ebenfalls die Stabilität des Systems zeigt, und 2 nicht-minimalphasige Nullstellen auf der reellen Achse, also in der rechten Halbebene.
-
-\begin{figure}[H]
-    \label{fig:pzmap}
-    \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/PoleZeroPlot.eps}
-    \caption{Pole-Zero-Plot}
- \end{figure}
-
-
-\subsection{Bode-Plot}
-
-In Abbildung \ref{fig:bode} ist die Amplitude und die Phase des Systemausgangs in Abhängigkeit zur Frequenz (logarithmisch skaliert).
-
-\begin{figure}[H]
-    \label{fig:bode}
-    \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/Bode.eps}
-    \caption{Bode-Plot}
- \end{figure}
-
-\subsection{Nyquist-Plot}
-
-Die Ortskurve oder auch Nyquist-Plot in \ref{fig:nyquist} ist ein Graph der die Amplitude und Phase des Systems für Schwingungen mit allen Frequenzen darstellt.
+\subsection{Ortskurve(Nyquist-Plot)}
+Im Nyquist-Plot wird der über $\omega$ parametrisierte Frequenzgang als Kurver in der komplexen Ebene mit Real- und Imaginärteil dargestellt.
+MATLAB bietet hier den Befehl \texttt{nyquist(sys)} an, welche zum folgenden \hyperref[fig:nyquist]{Plot} führt. Dabei zeigt MATLAB die Kurve von $-\infty$ bis $+\infty$ an, was in unserem Beispiel jedoch nicht nötig ist.
 
 \begin{figure}[H]
     \label{fig:nyquist}
     \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/Nyquist.eps}
-    \caption{Ortskurve / Nyquist-Plot}
+    \includegraphics[width=0.8\textwidth]{Bilder/NyquistPT1Tt.eps}
+    \caption{Nyquist-Plot}
+ \end{figure}
+
+ Darüber hinaus ist es in MATLAB möglich, mit dem Cursor entlang der Kurve zu gehen, um sich einzelne Werte genauer anzuschauen, wie in \autoref{fig:nyquistCursor} dargestellt.
+
+ \begin{figure}[H]
+    \label{fig:nyquistCursor}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/NyquistCursorPT1Tt.png}
+    \caption{Screenshot: Informationen im Nyquist-Plot}
+ \end{figure}
+
+ Systemtheoretisch entspricht der Frequenzgang einem Schnitt der komplexen Funktion $G(s)$ entlang der imaginären Achse: $G(s)\Bigr\rvert_{s = j * \omega}$
+
+\subsection{Bode-Diagramm}
+Im Bode-Diagramm sind der Betrag des Frequenzgangs über $\omega$ in Dezibel(dB) und die Phase des Frequenzgangs über $\omega$ in Grad($^\circ$) dargestellt. Damit die Kurven schön aussehen, verwendet MATLAB eine doppelt logarithmische Darstellung. Der dazugehörige MATLAB-Befehl ist \texttt{bode(sys)}. Streng genommen wird in MATLAB im oberen Bild die Amplitudenverstärkung angzeigt, die ein Sinus-Signal stationär erfährt (bei Eigenwert = 1), währenddessen im unteren Bild die Phasenverstärkung zu sehen ist.
+
+\begin{figure}[H]
+    \label{fig:bode}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/BodePT1Tt.eps}
+    \caption{Bode-Plot}
+ \end{figure}
+
+\subsection{Statische Kennlinie}
+Keine Ahnung
+
+\subsection{Pol-Nulstellen-Plot}
+\autoref{fig:poleZero} zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende MATLAB-Befehl hierfür lautet \texttt{pzplot(sys)}. MATLAB markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems. In unserem Beispiel hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist.
+
+\begin{figure}[H]
+    \label{fig:poleZero}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/PoleZeroPT1Tt.eps}
+    \caption{Bode-Plot}
  \end{figure}
