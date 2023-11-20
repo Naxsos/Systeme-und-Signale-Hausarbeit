@@ -77,6 +77,26 @@ Man kann auch die Zustandsraumdarstellung direkt eingeben, indem man man die Mat
 
 Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
 
+Sind die Matrizen $A, B, C, D$ bekannt, kommt man mit der folgenden Formel zur Übertragungsfunktion $G(s)$, wobei $I$ die Einheitsmatrix darstellt.
+\[
+    G(s) = C(s * I - A)^{-1} * B + D
+\]
+In unserem System erhält man damit aber die eigentliche Übertragungsfunktion, da die Totzeit $T_t$ verloren geht. Im Zustandsraum stellt sich die Totzeit folgendermaßen dar:
+\[
+    \dot x = Ax + Bu(t - T_t)
+\]
+--> HIER NOCHMAL GROELL NACHFRAGEN
+
+
+Sind zusätzlich die Anfangswerte bekannt, so lässt sich $x(t)$ und $y(t)$ wie folgt berechnen:
+
+\begin{align*}
+    x(t) & = e^{A(t-t_0)} * x(0) * \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
+    y(t) & = Ce^{A(t-t_0)} * x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
+\end{align*}
+
+Hier ist bei der Eingabe in MATLAB wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
+
 \subsubsection{Integralgleichung}
 \subsubsection{Differentialgleichung}
 
@@ -124,8 +144,6 @@ Beide Befehle führen zum folgenden Graphen:
     \includegraphics[width=0.8\textwidth]{Bilder/ImpulsAntwortPT1Tt.eps}
     \caption{Impulsantwort}
  \end{figure}
-
-
 
 \subsection{Übergangsfunktion h(t) (Sprungantwort)}
 
