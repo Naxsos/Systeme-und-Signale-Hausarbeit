@@ -112,27 +112,22 @@ $ \dot y(0^-) = CAx(0^-) + CBu(0^-) + D \dot u (0^-)$
 
 Dieses und das folgende Kapitel sind bei meinen Mitschrieben als 3a und 3b zusammengefasst
 
-Hier müssen wir noch unsere Formel einsetzen!!!
-\begin{eqnarray*}
-    G(s) =\frac{Y(s)}{U(s)} &=& \frac{6s^2 - 5s + 1}{120s^3 + 74s^2 + 15s +1} \\
-    Y(s)(120s^3 + 74s^2 + 15s +1) &=& U(s) (6s^2 - 5s + 1) \\
-    120 \dddot y + 74 \ddot y + 15 \dot y &=& 6 \ddot u + 5 \dot u + u \\
-\end{eqnarray*}
-
 \begin{eqnarray*}
     G(s) &=& \frac{3}{1 + s} * e^{-2s}\\
-    G_{PT1}(s) =\frac{Y(s)}{U(s)} &=& \frac{3}{1 + s} \\
+    G_{PT_1}(s) =\frac{Y(s)}{U(s)} &=& \frac{3}{1 + s} \\
     Y(s)(1+s) &=& (3) * U(s) \\
     Y(s) + Y(s) *s &=& 3*U(s) \\
     \dot y(t) + y(t) &=& 3 * u(t) 
 \end{eqnarray*}
-Es gilt für ein ein Totzeitglied: $y(t) = u(t-T_t)$
-Daraus folgt für $u(t)$ aus einer Totzeit $T_t = 2$ für die Ein-/Ausgangsdifferenzialgleichung:
+
+In dieser Differentialgleichung taucht die Totzeit $T_t$ nicht auf, da das Totzeitglied nicht mit einer gewöhnlichen Differentialgleichung beschrieben werden kann. Für ein Totzeitglied gilt: $y(t) = u(t-T_t)$. Setzt man unsere Totzeit $T_t = 2$ in die Ein-/Ausgangsdiffentialgleichung für das $PT_1$-Glied ein, würde folgen:
 \begin{eqnarray*}
-    \dot y(t) + y(t) &=& 3 * u(t-2) 
+    \dot y(t) + u(t - 2) &=& u(t) \\
+    \dot y(t) &=& u(t) - u(t-2)
 \end{eqnarray*}
 
--> Niklas ergibt das Sinn? 
+Somit ist es für einige Betrachtungen einfacher, die Totzeit zu vernachlässigen.
+
 \subsection{Übertragungsfunktion}
 Entweder wir streichen das erste kapitel und schreiben hier den Kram hin, oder iwie doppelt, oder ne andere Lösung -> Theresa ist gefragt!
 
@@ -243,8 +238,10 @@ Da es sich bei unserem System um ein System mit proportionalen Übertragungsverh
 \autoref{fig:poleZero} zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende MATLAB-Befehl hierfür lautet \texttt{pzplot(sys)}. MATLAB markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems. In unserem Beispiel hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist.
 
 \begin{figure}[H]
-    \label{fig:poleZero}
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/PoleZeroPT1Tt.eps}
     \caption{Bode-Plot}
  \end{figure}
+ \label{fig:poleZero}
+ %Warum auch immer muss hier das Label nach die Figure und nicht da rein, sonst haben wir ein Problem
+
