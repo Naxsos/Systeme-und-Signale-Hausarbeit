@@ -20,12 +20,26 @@ Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientieru
 \end{enumerate}
 
 \section{Das System}
+Wir betrachten einen Wassertank, der oben an einen Zufluss mit sehr hohem Druck angeschlossen ist. Unten befindet sich ein deutlich kleiner Abfluss, an den eine lange Wasserleitung angeschlossen ist. Erst am Ende der Wasserleitung befindet sich ein Messgerät, welcher den Volumenstrom misst.
+Eine beispielhafte Skizze sieht folgendermaßen aus:
+\begin{figure}[H]
+    \label{fig:tank}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/Tank.png}
+    \caption{Skizze des Systems}
+ \end{figure}
+Der Ablauf ist wie folgt: Über den Zufluss fließt Wasser in den Tank, da der Ausfluss aber deutlich kleiner ist, fließt erstmal deutlich weniger Wasser heraus. Erst wenn der Tank voller wird, erhöht sich der Druck und es kommt zu einem immer größeren Volumenstrom bis schließlich der Tank voll ist und der Druck des Zuflusses dafür sorgt, dass der Volumenstrom am Ausfluss gleich dem am Abfluss ist. Da das Messgerät aber weit entfernt vom Tank liegt, misst dieses den ganzen Vorgang erst mit einer gewissen Verzögerung.
+
+Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$. Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, destor größer ist $T_t$.
+
+\subsection{Größen}
+Die Eingangsgröße $u(t)$ ist in unserem Beispiel der Volumenstrom am Zufluss, angegeben z.\,B. in $\frac{l}{min}$. Der Zustand $x(t)$ ist der Volumenstrom am Ausfluss und der Ausgang $y(t)$ ist der gemessene Volumenstrom am Ausgang.
 
 
-\subsection{Eigenschaften des Systems}
-Wir untersuchen ein System mit Nennergrad 1, einer Totzeit $T_t$ und einem proportionalen Übertragungsverhalten. Daraus ergibt sich die Bezeichnung $PT_{1}T_{t}$.
+\subsection{Bezeichnung}
+Das System hat den Nennergrad 1, eine Totzeit $T_t$ und einem proportionalen Übertragungsverhalten. Daraus ergibt sich die Bezeichnung $PT_{1}T_{t}$.
 
-\subsection{Die Übertragungsfunktion}
+\subsection{Übertragungsfunktion}
 
 Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript analysiert wird. Formel \ref{eq:G(s)_3} zeigt eine etwas andere Darstellung der Formel, sodass die Eigenschaften des Systems leichter abzulesen sind.
 
@@ -33,15 +47,15 @@ Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript anal
     \label{eq:G(s)_1}
     G(s) &=& \frac{Y(s)}{U(s)} \\
     \label{eq:G(s)_2}
-    &=& \frac{3 * e^{-2s}}{(1+s)} \\
+    &=& \frac{1 * e^{-2s}}{(1+s)} \\
     \label{eq:G(s)_3}
-    &=& \frac{3}{1 + s} * e^{-2s}
+    &=& \frac{1}{1 + s} * e^{-2s}
 \end{eqnarray}
 
 \subsection{Eingabe in MATLAB}
 Für die Eingabe der Übertragungsfunktion in MATLAB gibt es zwei Möglichkeiten. \\
-In manueller Eingabe schreibt man \texttt{G(s) =  3 / (1 + s) * exp(-2 * s)}. \\
-In Computer-Algebra wird der Befehl \texttt{sys = tf([3], [1, 1],\textquotedbl IODelay\textquotedbl, 2)} benötigt. Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$ bzw. $s^1$ (im Nenner) angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s)}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \enquote{IODelay}, mit dem die Totzeit $t = 2$ angegeben wird.\\
+In manueller Eingabe schreibt man \texttt{G(s) =  1 / (1 + s) * exp(-2 * s)}. \\
+In Computer-Algebra wird der Befehl \texttt{sys = tf([1], [1, 1],\textquotedbl IODelay\textquotedbl, 2)} benötigt. Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$ bzw. $s^1$ (im Nenner) angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s))}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \texttt{\textquotedbl IODelay\textquotedbl}, mit dem die Totzeit $t = 2$ angegeben wird.\\
 In beiden Fällen wird in MATLAB damit die Formel \ref{eq:G(s)_3} dargestellt.
 
 \section{Darstellungsformen des Systems}
@@ -56,20 +70,19 @@ Die allgemeine Form der Zustandsraumdarstellung lautet:
 \end{align*}
 
 Mit dem MATLAB-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet MATLAB automatisch die Werte für unser System. Somit sieht die Zustandsraumdarstellung hier folgendermaßen aus:
-
 \begin{subequations}
-    \begin{align}
+    \begin{align*}
         \dot x & = \begin{bmatrix}
             -1
         \end{bmatrix}x + \begin{bmatrix}
-            2
+            1
         \end{bmatrix}u \\
         y & = \begin{bmatrix}
-            1.5
+            1
         \end{bmatrix}x + \begin{bmatrix}
             0
         \end{bmatrix}u
-    \end{align}
+    \end{align*}
 \end{subequations}
 
 
@@ -81,7 +94,7 @@ Sind die Matrizen $A, B, C, D$ bekannt, kommt man mit der folgenden Formel zur �
 \[
     G(s) = C(s * I - A)^{-1} * B + D
 \]
-In unserem System erhält man damit aber die eigentliche Übertragungsfunktion, da die Totzeit $T_t$ verloren geht. Im Zustandsraum stellt sich die Totzeit folgendermaßen dar:
+In unserem System erhält man damit aber nicht die eigentliche Übertragungsfunktion, da die Totzeit $T_t$ verloren geht. Im Zustandsraum stellt sich die Totzeit folgendermaßen dar:
 \[
     \dot x = Ax + Bu(t - T_t)
 \]
@@ -98,40 +111,62 @@ Sind zusätzlich die Anfangswerte bekannt, so lässt sich $x(t)$ und $y(t)$ wie 
 
 Hier ist bei der Eingabe in MATLAB wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
 
+\subsubsection*{Anfangswerte}
+
+Für die Simulation werden die Anfangswerte, da der Start der Funktion definiert sein muss. Hierbei müssen die linken Grenzwerte verwendet werden, da sonst eventuelle Sprünge miteinbezogen würden. Es gilt:
+\begin{subequations}
+    \begin{align*}
+        y(0^-) & = Cx(0^-) + D(0^-) \\
+        \dot y(0^-) & = CAx(0^-) + CBu(0^-) + D \dot u (0^-)
+    \end{align*}
+\end{subequations}
+
+Darüber hinaus gibt es einen Zusammenhang mit der Eingangs- / Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Eingangs- / Ausgangs-Differentialgleichung $y$ korrespondieren und sind mit folgender Formel umzurechnen:
+
+\begin{subequations}
+    \begin{align*}
+        \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
+        \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right)^{-1} \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right)
+    \end{align*}
+\end{subequations}
+
+Wir gehen bei unserem System davon aus, dass der Tank zu Beginn leer ist, somit kein Ausfluss vorliegt, und auch kein Zufluss herrscht. Somit sind alle Anfangswerte gleich $0$.
+
 \subsubsection{Integralgleichung}
 \subsubsection{Differentialgleichung}
 
-ACHTUNG: Beim Erstellen dieses Dokuments hatte ich zuerst die ANfangswerte vergessen! Das passiert mir in der Klausur nicht, da sonst ein Punkt weg ist !AUSRUFEZEICHEN!11!!1!
-Die Anfangswerte werden für die Simulation natürlich benötigt, weil die Funktion wissen muss, wo sie startet.
-Die Anfangswerte müssen mit den Anfangswerten der Ein-  Ausgangsdarstellung korrespondieren. 
-Das bedeutet $y(0) = CX(0^-) + D(0^-)$
+\begin{subequations}
+    \begin{align*}
+        y(t) & = x(t - 2)
+    \end{align*}
+\end{subequations}
 
-$ \dot y(0^-) = CAx(0^-) + CBu(0^-) + D \dot u (0^-)$
 
-\subsection{Eingangs-Ausgang Differentialgleichung}
+\subsection{Eingangs- /Ausgangs Differentialgleichung}
 
 Dieses und das folgende Kapitel sind bei meinen Mitschrieben als 3a und 3b zusammengefasst
 
 \begin{eqnarray*}
-    G(s) &=& \frac{3}{1 + s} * e^{-2s}\\
-    G_{PT_1}(s) =\frac{Y(s)}{U(s)} &=& \frac{3}{1 + s} \\
-    Y(s)(1+s) &=& (3) * U(s) \\
-    Y(s) + Y(s) *s &=& 3*U(s) \\
-    \dot y(t) + y(t) &=& 3 * u(t) 
+    G(s) &=& \frac{1}{1 + s} * e^{-2s}\\
+    G_{PT_1}(s) =\frac{Y(s)}{U(s)} &=& \frac{1}{1 + s} \\
+    Y(s)(1+s) &=& (1) * U(s) \\
+    Y(s) + Y(s) *s &=& 1*U(s) \\
+    \dot y(t) + y(t) &=& 1 * u(t) 
 \end{eqnarray*}
 
-In dieser Differentialgleichung taucht die Totzeit $T_t$ nicht auf, da das Totzeitglied nicht mit einer gewöhnlichen Differentialgleichung beschrieben werden kann. Für ein Totzeitglied gilt: $y(t) = u(t-T_t)$. Setzt man unsere Totzeit $T_t = 2$ in die Ein-/Ausgangsdiffentialgleichung für das $PT_1$-Glied ein, würde folgen:
+In dieser Differentialgleichung taucht die Totzeit $T_t$ nicht auf, da das Totzeitglied nicht mit einer gewöhnlichen Differentialgleichung beschrieben werden kann. Für die Funktionalbeziehung eines Totzeitglieds im Zeitbereich gilt: $y(t) = u(t-T_t)$. Für unser Beispiel mit der Totzeit $T_t = 2$ folgt somit:
 \begin{eqnarray*}
-    \dot y(t) + u(t - 2) &=& u(t) \\
-    \dot y(t) &=& u(t) - u(t-2)
+    \dot y(t) + y(t) &=& u(t - 2) 
 \end{eqnarray*}
+
+--> GROELL NACHFRAGEN
 
 Somit ist es für einige Betrachtungen einfacher, die Totzeit zu vernachlässigen.
 
 \subsection{Übertragungsfunktion}
 Entweder wir streichen das erste kapitel und schreiben hier den Kram hin, oder iwie doppelt, oder ne andere Lösung -> Theresa ist gefragt!
 
-\subsection{Gewichtsfunktion g(t) (Impulsantwort)}
+\subsection{Gewichtsfunktion (Impulsantwort)}
 Dieses und das folgende Kapitel sind bei meinen Mitschrieben als 4a und 4b zusammengefasst
 
 
@@ -156,7 +191,7 @@ Beide Befehle führen zum folgenden Graphen:
     \caption{Impulsantwort}
  \end{figure}
 
-\subsection{Übergangsfunktion h(t) (Sprungantwort)}
+\subsection{Übergangsfunktion (Sprungantwort)}
 
 In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Funktion zu sehen. Diese ist wie folgt definiert:
 
@@ -184,14 +219,14 @@ Beide Befehle führen zum folgenden Graphen:
  \end{figure}
 
 
-\subsection{Frequenzgang ($G(j * \omega)$)}
+\subsection{Frequenzgang}
 Dieses und die folgenden Kapitel sind in meinen Mitschrieben als 5a, 5b und 5c zusammengefasst.
 
 Zum Frequenzgang $G(j * \omega)$ gelangt man, indem man in $G(s)$ das $s$ durch $j * \omega$ ersetzt.
 
 Das bedeutet, das für jede Frequzenz $\omega$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder mit Betrag und Phase darstellt.
 
-\subsection{Ortskurve(Nyquist-Plot)}
+\subsection{Ortskurve (Nyquist-Plot)}
 Im Nyquist-Plot wird der über $\omega$ parametrisierte Frequenzgang als Kurver in der komplexen Ebene mit Real- und Imaginärteil dargestellt.
 MATLAB bietet hier den Befehl \texttt{nyquist(sys)} an, welche zum folgenden \hyperref[fig:nyquist]{Plot} führt. Dabei zeigt MATLAB die Kurve von $-\infty$ bis $+\infty$ an, was in unserem Beispiel jedoch nicht nötig ist.
 
