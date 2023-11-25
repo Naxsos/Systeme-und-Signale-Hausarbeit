@@ -268,13 +268,18 @@ Ein Beipsiel ist die Heaviside-Funktion, die wie folgt definiert ist:
 
 In Matlab lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
 
-\begin{lstlisting}
+\begin{verbatim}
     H(s) = G(s)/s
     syms h(t)
     h(t) = ilaplace(H(s))
-    t = [0:0.1:8]
-    plot(t, h(t))
-\end{lstlisting} 
+\end{verbatim} 
+
+Matlab Ausgabe: \texttt{h(t) = -heaviside(t - 2)*(exp(2 - t) - 1)}\\
+Mathematische Notation: 
+\begin{align*}
+    -1(t-2)*(e^{(t-2)}-1)
+\end{align*} wobei $1(t)$ für die Heavyside-Function steht.
+
 
 In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Funktion zu sehen.
 Beide Befehle führen zum folgenden Graphen:
