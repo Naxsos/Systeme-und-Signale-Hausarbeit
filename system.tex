@@ -5,21 +5,28 @@ Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientieru
     \item Detaillierungsgrad für das System festlegen
     \item Physikalisches Modell einschließlich der Störsignale erstellen
     \item Eingangs-, Ausgangs-, Zustands- und Störgrößen des Systems festlegen
+    \label{Punkt3}
     \item Physikalische Einheiten festlegen und ggf. Normierung in Prozent
+    \label{Punkt4}
     \item Analyse des Modells
+    \label{Punkt5}
     \begin{enumerate}
         \item Ruhelagen, Anfangswerte, evtl. Linearisierung nichtlinearer Systeme
         \item Systemeigenschaften ermitteln
     \end{enumerate}
     \item Entwurf
+    \label{Punkt6}
     \begin{enumerate}
         \item Ziele, Arbeitspunkte und Trajektorien festlegen
         \item Entwurf: Struktur, Bereich, Verfahren und Kriterien
     \end{enumerate}
     \item Simulation und Rückinterpretation
+    \label{Punkt7}
 \end{enumerate}
 
-\section{Das System}
+In dieser Vorlesung wird die Regelungstechnik außen vor gelassen, weswegen im Folgenden eine leicht abgewandelte Struktur angewendet wird. Bezüglich des Detaillierungsgrads sind alle in der Vorlesung behandelten Darstellungsformen darzulegen. Weiterführend werden die Punkte \hyperref[Punkt3]{3} und \hyperref[Punkt4]{4} des Vorgehens aus der Regelungstechnik zusammengefasst und tabellarisch dargestellt. Schwerpunktmäßig wird in dieser Arbeit Punkt \hyperref[Punkt5]{5} behandelt, in dem alle Darstellungsformen aus der Vorlesung dargelegt werden. Punkt \hyperref[Punkt6]{6} und \hyperref[Punkt7]{7} werden in dieser Arbeit nicht betrachtet.
+
+\section{Unser System}
 Wir betrachten einen Wassertank, der oben an einen Zufluss mit sehr hohem Druck angeschlossen ist. Am unten Ende des Wassertanks befindet sich ein deutlich kleiner Abfluss, an den eine lange Wasserleitung angeschlossen ist. Erst am Ende der Wasserleitung befindet sich ein Messgerät, welcher den Volumenstrom misst.
 Eine beispielhafte Skizze sieht folgendermaßen aus:
 \begin{figure}[H]
@@ -30,18 +37,18 @@ Eine beispielhafte Skizze sieht folgendermaßen aus:
  \end{figure}
 Der Ablauf stellt sich wie folgt dar: Über den Zufluss fließt Wasser in den Tank, da der Ausfluss aber deutlich kleiner ist, fließt erstmal deutlich weniger Wasser heraus. Erst wenn der Tank voller wird, erhöht sich der Wasserdruck und es kommt zu einem immer größeren Volumenstrom bis schließlich der Tank voll ist und der Druck des Zuflusses dafür sorgt, dass der Volumenstrom am Ausfluss gleich dem am Abfluss ist. Da das Messgerät aber weit entfernt vom Tank liegt, misst dieses den ganzen Vorgang erst mit einer gewissen Verzögerung.
 
-{\color{blue}Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$.} Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, destor größer ist $T_t$.
+Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$. Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, destor größer ist $T_t$.
 
 \subsection{Größen}
 Im folgenden Werden Eingangs-, Zustands- und Ausgangsgrößen des Systems definiert.
+\renewcommand{\arraystretch}{1.5}
 \begin{center}
     \begin{tabular}{ c|c|l } 
     Systemtheorie  & Größe im System & Einheit \\
     \hline
-    $u(t)$ & Volumenstrom & \multirow{3}{3em}{$\frac{l}{min}$ } \\ 
-    $x(t)$ & Volumenstrom am Ausfluss &  \\ 
-    $y(t)$ & gemessene Volumenstrom am Messgerät&   \\ 
-
+    $u(t)$ & Volumenstrom am Zufluss & $\frac{l}{min}$ \\ 
+    $x(t)$ & Volumenstrom am Ausfluss &  $\frac{l}{min}$\\ 
+    $y(t)$ & gemessene Volumenstrom am Messgerät & $\frac{l}{min}$ \\ 
     \end{tabular}
 \end{center}
 %Die Eingangsgröße $u(t)$ ist in unserem Beispiel der Volumenstrom am Zufluss, angegeben z.\,B. in $\frac{l}{min}$. Der Zustand $x(t)$ ist der Volumenstrom am Ausfluss und der Ausgang $y(t)$ ist der gemessene Volumenstrom am Messgerät.
@@ -65,22 +72,27 @@ Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript anal
 
 \subsection{Eingabe in MATLAB}
 Für die Eingabe der Übertragungsfunktion in MATLAB gibt es zwei Möglichkeiten. \\
-In manueller Eingabe schreibt man \texttt{G(s) =  1 / (1 + s) * exp(-2 * s)}. \\
-In Computer-Algebra wird der Befehl \texttt{sys = tf([1], [1, 1],\textquotedbl IODelay\textquotedbl, 2)} benötigt. Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$, $s^1$, $s^2$, \ldots (im Nenner) angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s))}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \texttt{\textquotedbl IODelay\textquotedbl}, mit dem die Totzeit $t = 2$ angegeben wird.\\
+In Computer-Algebra führt man mit \texttt{sys s} und \texttt{sys G(s)} die symbolischen Variablen ein und schreibt dann \texttt{G(s) =  1 / (1 + s) * exp(-2 * s)}. \\
+In manueller Eingabe wird der Befehl \texttt{sys = tf([1], [1, 1],\textquotedbl IODelay\textquotedbl, 2)} benötigt. Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$, $s^1$, $s^2$, \ldots (im Nenner) angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s))}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \texttt{\textquotedbl IODelay\textquotedbl}, mit dem die Totzeit $t = 2$ angegeben wird.\\
 In beiden Fällen wird in MATLAB damit die Formel \ref{eq:G(s)_3} dargestellt.
 
 \section{Darstellungsformen des Systems}
+Im Folgenden werden die Darstellungen unseres Systems näher beleuchtet. Generell gilt: Mit jeder weiteren Darstellung verliert man bestimmte Informationen über das System, sodass die erste Darstellung die informationsreichste ist.
 
 \subsection{Explizite Darstellung des Übertragungsoperators}
 
 \subsection{Zustandsraumdarstellung}
+Der Zustandsraum lässt sich sowohl implizit als auch explizit darstellen.
+
+\subsubsection{Implizite Darstellung}
+
 Die allgemeine Form der Zustandsraumdarstellung lautet:
 \begin{align*}
     \dot x & = Ax + Bu \nonumber \\
     y & = Cx + Du
 \end{align*}
 
-Mit dem MATLAB-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet MATLAB automatisch die Werte für unser System. Somit sieht die Zustandsraumdarstellung hier folgendermaßen aus:
+Mit dem MATLAB-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet MATLAB automatisch die Werte für unser System. Somit sieht die Zustandsraumdarstellung für unser System folgendermaßen aus:
 \begin{align*}
     \dot x & = \begin{bmatrix}
         -1
@@ -94,15 +106,15 @@ Mit dem MATLAB-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet MAT
     \end{bmatrix}u
 \end{align*}
 
-
-Man kann auch die Zustandsraumdarstellung direkt eingeben, indem man man die Matrizen $A, B, C, D$ belegt und den Befehl \texttt{sys = ss(A, B, C, D)} ausführt. Von hier aus kommt man mit \texttt{tf(sys)} wieder zur Übertragungsfunktion.
-
-Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
-
 Sind die Matrizen $A, B, C, D$ bekannt, kommt man mit der folgenden Formel zur Übertragungsfunktion $G(s)$, wobei $I$ die Einheitsmatrix darstellt.
 \[
     G(s) = C(s * I - A)^{-1} * B + D
 \]
+Dies lässt sich auch in MATLAB eingeben, indem man man die Matrizen $A, B, C, D$ belegt und den Befehl \texttt{sys = ss(A, B, C, D)} ausführt. Von hier aus liefert der Befehl \texttt{tf(sys)} die Übertragungsfunktion.
+
+Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
+
+
 In unserem System erhält man damit aber nicht die eigentliche Übertragungsfunktion, da die Totzeit $T_t$ verloren geht. Für die Funktionalbeziehung eines Totzeitglieds im Zeitbereich gilt: $y(t) = u(t-T_t)$. Somit ergibt sich für die Zustandsraumdarstellung eines zeitverzögerten Systems:
 \begin{align*}
     \dot x(t) & = Ax(t) + Bu(t - T_t) \nonumber \\
@@ -124,7 +136,29 @@ In unserem Beispiel mit $T_t = 2$ bedeutet das also:
 
 --> HIER NOCHMAL GROELL NACHFRAGEN
 
-\subsubsection*{Explizite Darstellung}
+\subsubsection*{Anfangswerte}
+
+Für die Simulation werden die Anfangswerte, da der Start der Funktion definiert sein muss. Hierbei müssen die linken Grenzwerte verwendet werden, da sonst eventuelle Sprünge miteinbezogen würden. Es gilt:
+\begin{align*}
+    y(0^-) & = Cx(0^-) + Du(0^-) \\
+    \dot y(0^-) & = CAx(0^-) + CBu(0^-) + D \dot u (0^-)
+\end{align*}
+
+Darüber hinaus gibt es einen Zusammenhang mit der Eingangs- / Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Eingangs- / Ausgangs-Differentialgleichung $y$ korrespondieren. Da wir bei unserem System davon anfangs kein Zufluss vorliegt, ist $u(0^-) = 0$. Daher lassen sich die Anfangswerte der mit folgender Formel berechnen:
+
+\begin{align*}
+    \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
+    \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right)^{-1} \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right)
+\end{align*}
+
+Weiterhin gehen wir bei unserem System davon aus, dass der Tank zu Beginn leer ist, somit kein Ausfluss vorliegt. Daraus ergibt sich $x(0^-) = 0$ und mit voriger Formel gilt:
+\begin{align*}
+    \left(\begin{array}{c} y \\ \dot y \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right) \\
+    \left(\begin{array}{c} x_1 \\ x_2 \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right)
+\end{align*}
+
+
+\subsubsection{Explizite Darstellung}
 
 Sind zusätzlich die Anfangswerte bekannt, so lässt sich $x(t)$ und $y(t)$ wie folgt berechnen:
 
@@ -135,25 +169,10 @@ Sind zusätzlich die Anfangswerte bekannt, so lässt sich $x(t)$ und $y(t)$ wie 
 
 Hier ist bei der Eingabe in MATLAB wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
 
-\subsubsection*{Anfangswerte}
-
-Für die Simulation werden die Anfangswerte, da der Start der Funktion definiert sein muss. Hierbei müssen die linken Grenzwerte verwendet werden, da sonst eventuelle Sprünge miteinbezogen würden. Es gilt:
-\begin{align*}
-    y(0^-) & = Cx(0^-) + D(0^-) \\
-    \dot y(0^-) & = CAx(0^-) + CBu(0^-) + D \dot u (0^-)
-\end{align*}
-
-Darüber hinaus gibt es einen Zusammenhang mit der Eingangs- / Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Eingangs- / Ausgangs-Differentialgleichung $y$ korrespondieren und sind mit folgender Formel umzurechnen:
-
-\begin{align*}
-    \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
-    \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right)^{-1} \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right)
-\end{align*}
-
-Wir gehen bei unserem System davon aus, dass der Tank zu Beginn leer ist, somit kein Ausfluss vorliegt, und auch kein Zufluss herrscht. Somit sind alle Anfangswerte gleich $0$.
 
 \subsubsection{Integralgleichung}
-Als Integralgleichung gilt allgemein:
+Im Gegensatz zur Differentialgleichung ergibt die Integralgleichung \enquote{mild solution}, welche Sprünge abbilden können.
+Als Integralgleichung gilt:
 \begin{align*}
     x(t) & = x(0) + \int_{0}^{t} Ax(\tau) + Bu(\tau)\,d\tau
 \end{align*}
@@ -167,7 +186,7 @@ Für unser System ergibt sich somit:
 \end{align*}
 
 \subsubsection{Differentialgleichung}
-
+Aufgrund unseres physikalischen Modells gilt:
 \begin{align*}
     y(t) & = x(t - 2)
 \end{align*}
@@ -203,10 +222,7 @@ Formel \ref{eq:2G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript ana
 \end{eqnarray}
 
 \subsection{Gewichtsfunktion (Impulsantwort)}
-Dieses und das folgende Kapitel sind bei meinen Mitschrieben als 4a und 4b zusammengefasst
-
-
-In Abbildung \ref{fig:impuls} ist die Reaktion des Systems auf technischen Eingangssprung zu sehen.
+In Abbildung \ref{fig:impuls} ist die Reaktion des Systems auf technischen Eingangssprung zu sehen. Diese Gewichtsfunktion oder auch Impulsantwort bezeichnet man oft mit $\delta(t)$.
 \\
 In MATLAB lässt sich das mit dem Befehl \texttt{impulse(sys)} simulieren, wodurch man die numerische Lösung erhält. In MATLAB lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
 \begin{lstlisting}
@@ -234,7 +250,8 @@ In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Fun
 \[
 \sigma (t) = \begin{cases} 0 & \text{für t < 0} \\ 1 & \text{für t > 0} \end{cases}  
 \]
-\\
+
+Man bezeichnet diese Übergangsfunktion oder auch Sprungantwort oft mit $1(t)$.\\
 In MATLAB lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
 
 \begin{lstlisting}
@@ -256,9 +273,9 @@ Beide Befehle führen zum folgenden Graphen:
 
 
 \subsection{Frequenzgang}
-Zum Frequenzgang $G(j * \omega)$ gelangt man, indem man in $G(s)$ das $s$ durch $j * \omega$ ersetzt.
+Zum Frequenzgang $G(j * \omega)$ gelangt man, indem man in $G(s)$ die Variable $s$ durch $j * \omega$ ersetzt.
 
-Das bedeutet, das für jede Frequzenz $\omega$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder mit Betrag und Phase darstellt.
+Das bedeutet, das für jede Frequzenz $\omega$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder mit Betrag und Phase darstellt. Da in der Systemtheorie $i$ für den Strom steht, wird hier $j$ als imaginäre Einheit verwendet.
 
 \subsubsection{Ortskurve (Nyquist-Plot)}
 Im Nyquist-Plot wird der über $\omega$ parametrisierte Frequenzgang als Kurver in der komplexen Ebene mit Real- und Imaginärteil dargestellt.
