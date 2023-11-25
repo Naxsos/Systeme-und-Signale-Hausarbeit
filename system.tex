@@ -40,7 +40,7 @@ Der Ablauf stellt sich wie folgt dar: Über den Zufluss fließt Wasser in den Ta
 Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$. Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, destor größer ist $T_t$.
 
 \subsection{Größen}
-Im folgenden Werden Eingangs-, Zustands- und Ausgangsgrößen des Systems definiert.
+Im folgenden werden Eingangs-, Zustands- und Ausgangsgrößen des Systems definiert.
 \renewcommand{\arraystretch}{1.5}
 \begin{center}
     \begin{tabular}{ c|c|l } 
@@ -70,11 +70,19 @@ Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript anal
     &=& \frac{1}{1 + s} * e^{-2s}
 \end{eqnarray}
 
-\subsection{Eingabe in MATLAB}
-Für die Eingabe der Übertragungsfunktion in MATLAB gibt es zwei Möglichkeiten. \\
-In Computer-Algebra führt man mit \texttt{sys s} und \texttt{sys G(s)} die symbolischen Variablen ein und schreibt dann \texttt{G(s) =  1 / (1 + s) * exp(-2 * s)}. \\
-In manueller Eingabe wird der Befehl \texttt{sys = tf([1], [1, 1],\textquotedbl IODelay\textquotedbl, 2)} benötigt. Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$, $s^1$, $s^2$, \ldots (im Nenner) angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s))}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \texttt{\textquotedbl IODelay\textquotedbl}, mit dem die Totzeit $t = 2$ angegeben wird.\\
-In beiden Fällen wird in MATLAB damit die Formel \ref{eq:G(s)_3} dargestellt.
+\subsection{Eingabe in Matlab}
+Für die Eingabe der Übertragungsfunktion in Matlab gibt es zwei Möglichkeiten. \\
+In Computer-Algebra führt man \texttt{s} und \texttt{G(s)} als symbolischen Variablen ein und kann anschließend die Übertragungsfunktion \texttt{G(s)} definieren:
+
+\begin{verbatim}
+    syms s, G(s)
+    G(s) =  1 / (1 + s) * exp(-2 * s)
+\end{verbatim}
+
+Man erhält das selbe Ergebnis wie bei der obigen manuellen Definition von $s$ und $G(s)$, wenn man den Transfer-Function-Befehlt \texttt{tf()} in Matlab verwendet. \\
+Dazu muss der Befehl \texttt{sys = tf([1], [1, 1],\textquotedbl IODelay\textquotedbl, 2)} in Matlab eingegeben werden. Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$, $s^1$, $s^2$, \ldots (im Nenner) angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s))}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \texttt{\textquotedbl IODelay\textquotedbl}, mit dem die Totzeit $t = 2$ angegeben wird.
+
+In beiden Fällen wird in Matlab damit die Formel \ref{eq:G(s)_3} dargestellt.
 
 \section{Darstellungsformen des Systems}
 Im Folgenden werden die Darstellungen unseres Systems näher beleuchtet. Generell gilt: Mit jeder weiteren Darstellung verliert man bestimmte Informationen über das System, sodass die erste Darstellung die informationsreichste ist.
@@ -92,7 +100,7 @@ Die allgemeine Form der Zustandsraumdarstellung lautet:
     y & = Cx + Du
 \end{align*}
 
-Mit dem MATLAB-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet MATLAB automatisch die Werte für unser System. Somit sieht die Zustandsraumdarstellung für unser System folgendermaßen aus:
+Mit dem Matlab-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet Matlab automatisch die Werte für unser System. Somit sieht die Zustandsraumdarstellung für unser System folgendermaßen aus:
 \begin{align*}
     \dot x & = \begin{bmatrix}
         -1
@@ -110,10 +118,8 @@ Sind die Matrizen $A, B, C, D$ bekannt, kommt man mit der folgenden Formel zur �
 \[
     G(s) = C(s * I - A)^{-1} * B + D
 \]
-Dies lässt sich auch in MATLAB eingeben, indem man man die Matrizen $A, B, C, D$ belegt und den Befehl \texttt{sys = ss(A, B, C, D)} ausführt. Von hier aus liefert der Befehl \texttt{tf(sys)} die Übertragungsfunktion.
 
-Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
-
+Sofern die Matrizen gegeben sind könnte man alternativ das System auch bereits mit der dazugehörigen Zustandsraumdarstellung übergeben, indem \texttt{sys = ss(A, B, C, D)} in Matlab eingegeben wird. Der Befehlt \texttt{tf(sys)} liefert dann die Übertragungsfunktion über die Zustandsraumdarstellung.
 
 In unserem System erhält man damit aber nicht die eigentliche Übertragungsfunktion, da die Totzeit $T_t$ verloren geht. Für die Funktionalbeziehung eines Totzeitglieds im Zeitbereich gilt: $y(t) = u(t-T_t)$. Somit ergibt sich für die Zustandsraumdarstellung eines zeitverzögerten Systems:
 \begin{align*}
@@ -136,15 +142,17 @@ In unserem Beispiel mit $T_t = 2$ bedeutet das also:
 
 --> HIER NOCHMAL GROELL NACHFRAGEN
 
+Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
+
 \subsubsection*{Anfangswerte}
 
-Für die Simulation werden die Anfangswerte, da der Start der Funktion definiert sein muss. Hierbei müssen die linken Grenzwerte verwendet werden, da sonst eventuelle Sprünge miteinbezogen würden. Es gilt:
+Für die Simulation sind Anfangswerte notwendig, da der Start der Funktion definiert sein muss. Hierbei müssen die linken Grenzwerte verwendet werden, da sonst eventuelle Sprünge miteinbezogen würden. Es gilt:
 \begin{align*}
     y(0^-) & = Cx(0^-) + Du(0^-) \\
     \dot y(0^-) & = CAx(0^-) + CBu(0^-) + D \dot u (0^-)
 \end{align*}
 
-Darüber hinaus gibt es einen Zusammenhang mit der Eingangs- / Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Eingangs- / Ausgangs-Differentialgleichung $y$ korrespondieren. Da wir bei unserem System davon anfangs kein Zufluss vorliegt, ist $u(0^-) = 0$. Daher lassen sich die Anfangswerte der mit folgender Formel berechnen:
+Darüber hinaus gibt es einen Zusammenhang mit der Ein-/Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Eingangs-/Ausgangs- Differentialgleichung $y$ korrespondieren. ZUr berechnung werden folgenden Formeln verwendet:
 
 \begin{align*}
     \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
@@ -167,7 +175,7 @@ Sind zusätzlich die Anfangswerte bekannt, so lässt sich $x(t)$ und $y(t)$ wie 
     y(t) & = Ce^{A(t-t_0)} * x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
 \end{align*}
 
-Hier ist bei der Eingabe in MATLAB wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
+Hier ist bei der Eingabe in Matlab wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
 
 
 \subsubsection{Integralgleichung}
@@ -186,11 +194,12 @@ Für unser System ergibt sich somit:
 \end{align*}
 
 \subsubsection{Differentialgleichung}
-Aufgrund unseres physikalischen Modells gilt:
+Aus unserem physikalischen Modells lässt sich folgende Differenzialgleichung ableiten:
 \begin{align*}
     y(t) & = x(t - 2)
 \end{align*}
 
+--> HIER NOCHMAL GROELL NACHFRAGEN
 
 \subsection{Eingangs- /Ausgangs Differentialgleichung}
 Für unser System ergibt sich:
@@ -222,19 +231,23 @@ Formel \ref{eq:2G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript ana
 \end{eqnarray}
 
 \subsection{Gewichtsfunktion (Impulsantwort)}
-In Abbildung \ref{fig:impuls} ist die Reaktion des Systems auf technischen Eingangssprung zu sehen. Diese Gewichtsfunktion oder auch Impulsantwort bezeichnet man oft mit $\delta(t)$.
-\\
-In MATLAB lässt sich das mit dem Befehl \texttt{impulse(sys)} simulieren, wodurch man die numerische Lösung erhält. In MATLAB lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
-\begin{lstlisting}
+Die Gewichtsfunktion $g(t)$ wird auch als Impulsantwort bezeichnet.
+Die Impulsantwort ist die Antwort eines Sytems auf einen Dirac-Impuls $\delta(t)$.\\
+In Matlab lässt sich die Gewichtsfunktion sowohl graphisch ausgeben als auch analytisch explizit berechnen.
+Mit dem Matlab-Befehl \texttt{impulse(sys)} wird einen Plot der Impulsantwort erstellt. Mit Hilfe des Befehls \texttt{ilaplace()}, wird die laplace-Transformierte  Gewichtsfunktion $g(t)$ zurückliefert:
+\begin{verbatim}
     syms g(t)
-    g(t) = ilaplace(H(s))
-    t = [0:0.1:8]
-    plot(t, g(t))
-\end{lstlisting}
+    g(t) = ilaplace(G(s))
+\end{verbatim}
 
-Beide Befehle führen zum folgenden Graphen:
+Matlab Ausgabe: \texttt{g(t) = heaviside(t - 2)*exp(2 - t)}\\
+Mathematische Notation: 
+\begin{align*}
+    1(t-1)*e^{(t-2)}
+\end{align*} wobei $1(t)$ für die Heavyside-Function steht.
 
-
+\newpage
+In der folgenden Abbildung ist die Reaktion des Systems auf einen Dirac-Impuls Eingangssprung graphisch dargestellt.
 
 \begin{figure}[H]
     \label{fig:impuls}
@@ -245,14 +258,15 @@ Beide Befehle führen zum folgenden Graphen:
 
 \subsection{Übergangsfunktion (Sprungantwort)}
 
-In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Funktion zu sehen. Diese ist wie folgt definiert:
+Die Spungantwort wird auch als Übergangsfunktion $h(t)$ bezeichnet.
+Sie $h(t)$ ist die Antwort des Systems auf den Einheitssprung $\sigma (t)$.
+Ein Beipsiel ist die Heaviside-Funktion, die wie folgt definiert ist:
 
 \[
-\sigma (t) = \begin{cases} 0 & \text{für t < 0} \\ 1 & \text{für t > 0} \end{cases}  
+1 (t) = \begin{cases} 0 & \text{für t < 0} \\ 1 & \text{für t > 0} \end{cases}  
 \]
 
-Man bezeichnet diese Übergangsfunktion oder auch Sprungantwort oft mit $1(t)$.\\
-In MATLAB lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
+In Matlab lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch man die numerische Lösung erhält. Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung. Hierbei hilft einem der Befehl \texttt{ilaplace()}, der die Laplace-Transformierte zurückliefert:
 
 \begin{lstlisting}
     H(s) = G(s)/s
@@ -262,6 +276,7 @@ In MATLAB lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch 
     plot(t, h(t))
 \end{lstlisting} 
 
+In Abbildung \ref{fig:sprung} ist die Reaktion des Systems auf den Heaviside-Funktion zu sehen.
 Beide Befehle führen zum folgenden Graphen:
 
 \begin{figure}[H]
@@ -271,15 +286,20 @@ Beide Befehle führen zum folgenden Graphen:
     \caption{Sprungantwort}
  \end{figure}
 
-
 \subsection{Frequenzgang}
-Zum Frequenzgang $G(j * \omega)$ gelangt man, indem man in $G(s)$ die Variable $s$ durch $j * \omega$ ersetzt.
+Zum Frequenzgang $G(j \omega)$ gelangt man, indem man in $G(s)$ die Variable $s$ durch $j \omega$ ersetzt.\\
+Das $\omega$ steht für die \textit{Frequenz in Radiant pro Sekunde} (Erinnerung: $\omega = 2\pi f$). Das $j$ steht für die \textit{imaginäre Einheit}, da $i$ in der Systemtheorie für den Strom steht und daher durch $j$ ersetzt wird.
 
-Das bedeutet, das für jede Frequzenz $\omega$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder mit Betrag und Phase darstellt. Da in der Systemtheorie $i$ für den Strom steht, wird hier $j$ als imaginäre Einheit verwendet.
+Das bedeutet, das für jede Frequzenz $\omega$, $G(j \omega)$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder einen Betrag mit Phase darstellt.
+Systemtheoretisch entspricht der Frequenzgang $G(j\omega)$ einem Schritt der komplexen Funktion von $G(s)$ entlang der imaginären Achse: $G(s)|_{s = j * \omega}$
 
-\subsubsection{Ortskurve (Nyquist-Plot)}
-Im Nyquist-Plot wird der über $\omega$ parametrisierte Frequenzgang als Kurver in der komplexen Ebene mit Real- und Imaginärteil dargestellt.
-MATLAB bietet hier den Befehl \texttt{nyquist(sys)} an, welche zum folgenden \hyperref[fig:nyquist]{Plot} führt. Dabei zeigt MATLAB die Kurve von $-\infty$ bis $+\infty$ an, was in unserem Beispiel jedoch nicht nötig ist.
+\subsubsection{Nyquist-Plot (Ortskurve)}
+Im Nyquist-Plot wird der über $\omega$ parametrisierte Frequenzgang als Kurve in der komplexen Ebene mit Real- und Imaginärteil dargestellt.
+
+Mit dem Matlab-Befehl \texttt{nyquist(sys)} wird ein Plot der Kurve des Frequenzgangs $G(\omega j)$ ausgegeben. Dabei ist es möglich, mit dem Cursor entlang der Kurve zufahren, um sich den Real- und Imaginärteil zu dem jeweiligen Punkt anzeigen zu lassen (siehe \autoref{fig:nyquistCursor}).\\
+Matlab zeigt die Kurve des Frequenzgangs $G(j\omega)$ immer für $\omega$ zwischen $- \infty$ und $+ \infty$ an.
+
+Mit dem Matlab-Befehl \texttt{nyquist(sys)} wird für unser System folgender \hyperref[fig:nyquist]{Plot} ausgegeben:
 
 \begin{figure}[H]
     \label{fig:nyquist}
@@ -288,29 +308,36 @@ MATLAB bietet hier den Befehl \texttt{nyquist(sys)} an, welche zum folgenden \hy
     \caption{Nyquist-Plot}
  \end{figure}
 
- Darüber hinaus ist es in MATLAB möglich, mit dem Cursor entlang der Kurve zu gehen, um sich einzelne Werte genauer anzuschauen, wie in \autoref{fig:nyquistCursor} dargestellt.
-
+Anschließend kann per Curser-Click die Information über Real- und Imaginärteil in der Anzeige des Plots angerufen werden:
  \begin{figure}[H]
     \label{fig:nyquistCursor}
     \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/NyquistCursorPT1Tt.png}
+    \includegraphics[width=0.6\textwidth]{Bilder/NyquistCursorPT1Tt.png}
     \caption{Screenshot: Informationen im Nyquist-Plot}
  \end{figure}
 
- Systemtheoretisch entspricht der Frequenzgang einem Schnitt der komplexen Funktion $G(s)$ entlang der imaginären Achse: $G(s)\Bigr\rvert_{s = j * \omega}$
-
+ 
 \subsubsection{Bode-Diagramm}
-Im Bode-Diagramm sind der Betrag des Frequenzgangs über $\omega$ in Dezibel(dB) und die Phase des Frequenzgangs über $\omega$ in Grad($^\circ$) dargestellt. Damit die Kurven schön aussehen, verwendet MATLAB eine doppelt logarithmische Darstellung. Der dazugehörige MATLAB-Befehl ist \texttt{bode(sys)}. Streng genommen wird in MATLAB im oberen Bild die Amplitudenverstärkung angzeigt, die ein Sinus-Signal stationär erfährt (bei Eigenwert = 1), währenddessen im unteren Bild die Phasenverstärkung zu sehen ist.
+Im Bode-Diagramm sind der Betrag des Frequenzgangs über $\omega$ in Dezibel(dB) und die Phase des Frequenzgangs über $\omega$ in Grad($^\circ$) dargestellt.\\
+Streng genommen wird im oberen Diagramm der Abbildung 6 die Amplitudenverstärkung dargestellt, die ein Sinus-Signal an der Frequenz $\omega$ stationär erfährt (wenn die Eigenvorgänge abgeklungen sind und sich das System eingeschwungen hat; {\color{blue}bei Eigenwert = 1}), während im unteren Diagramm die Phasenverschiebung zu sehen ist.  
+
+Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl intern eine doppelt logarithmische Darstellung verwendet. Die Diagramm-Achse, auf der $\omega$ aufgetragen ist, ist dabei logarithmisch skaliert, während der Betrag in Dezibel (dB) angegeben wird,  damit die Kurven schön aussehen.
 
 \begin{figure}[H]
-    \label{fig:bode}
+    \label{fig:bodePlot}
+    \label{fig:lassmich}
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/BodePT1Tt.eps}
     \caption{Bode-Plot}
  \end{figure}
 
 \subsection{Statische Kennlinie}
-Da es sich bei unserem System um ein System mit proportionalen Übertragungsverhalten handelt, entspricht die statische Verstärkung $K = G(0)$ bzw. $K = \lim_{t\to \infty} h(t)$. Somit ergibt sich bei unserem System eine Verstärkung von 3, weshalb die statische Kennlinie nur eine konstante Funktion ist. Mithilfe des MATLAB-Befehls \texttt{fplot(1)} (wegen $K = 1$) lässt sich das graphisch darstellen. Der Nachteil der statischen Kennlinie ist, dass sie im Gegensatz zum Pol-Nullstellen-Plot keine Dynamik-Informationen enthält.
+
+Da es sich bei unserem System um ein System mit proportionalen Übertragungsverhalten 
+handelt, entspricht die statische Verstärkung $K = G(0)$ bzw. $K = \lim_{t\to \infty} h(t)$. 
+Somit ergibt sich bei unserem System eine Verstärkung von 3, weshalb die statische Kennlinie nur eine konstante Funktion ist. 
+
+Mithilfe des Matlab-Befehls \texttt{fplot(1)} (wegen $K = 1$) lässt sich das graphisch darstellen. Der Nachteil der statischen Kennlinie ist, dass sie im Gegensatz zum Pol-Nullstellen-Plot keine Dynamik-Informationen enthält.
 
 
 \begin{figure}[H]
@@ -321,7 +348,7 @@ Da es sich bei unserem System um ein System mit proportionalen Übertragungsverh
  \end{figure}
 
 \subsection{Pol-Nulstellen-Plot}
-\autoref{fig:poleZero} zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende MATLAB-Befehl hierfür lautet \texttt{pzplot(sys)}. MATLAB markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems. In unserem Beispiel hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. Der Nachteil des Pol-Nullstellen-Plots ist, dass er im Gegensatz zur statischen kennlinie keine Statik-Informationen enthält.
+\autoref{fig:poleZero} zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende Matlab-Befehl hierfür lautet \texttt{pzplot(sys)}. Matlab markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems. In unserem Beispiel hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. Der Nachteil des Pol-Nullstellen-Plots ist, dass er im Gegensatz zur statischen kennlinie keine Statik-Informationen enthält.
 
 \begin{figure}[H]
     \centering
