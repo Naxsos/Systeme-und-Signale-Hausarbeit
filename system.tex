@@ -20,7 +20,7 @@ Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientieru
 \end{enumerate}
 
 \section{Das System}
-Wir betrachten einen Wassertank, der oben an einen Zufluss mit sehr hohem Druck angeschlossen ist. Unten befindet sich ein deutlich kleiner Abfluss, an den eine lange Wasserleitung angeschlossen ist. Erst am Ende der Wasserleitung befindet sich ein Messgerät, welcher den Volumenstrom misst.
+Wir betrachten einen Wassertank, der oben an einen Zufluss mit sehr hohem Druck angeschlossen ist. Am unten Ende des Wassertanks befindet sich ein deutlich kleiner Abfluss, an den eine lange Wasserleitung angeschlossen ist. Erst am Ende der Wasserleitung befindet sich ein Messgerät, welcher den Volumenstrom misst.
 Eine beispielhafte Skizze sieht folgendermaßen aus:
 \begin{figure}[H]
     \label{fig:tank}
@@ -28,12 +28,23 @@ Eine beispielhafte Skizze sieht folgendermaßen aus:
     \includegraphics[width=0.8\textwidth]{Bilder/Tank.png}
     \caption{Skizze des Systems}
  \end{figure}
-Der Ablauf ist wie folgt: Über den Zufluss fließt Wasser in den Tank, da der Ausfluss aber deutlich kleiner ist, fließt erstmal deutlich weniger Wasser heraus. Erst wenn der Tank voller wird, erhöht sich der Druck und es kommt zu einem immer größeren Volumenstrom bis schließlich der Tank voll ist und der Druck des Zuflusses dafür sorgt, dass der Volumenstrom am Ausfluss gleich dem am Abfluss ist. Da das Messgerät aber weit entfernt vom Tank liegt, misst dieses den ganzen Vorgang erst mit einer gewissen Verzögerung.
+Der Ablauf stellt sich wie folgt dar: Über den Zufluss fließt Wasser in den Tank, da der Ausfluss aber deutlich kleiner ist, fließt erstmal deutlich weniger Wasser heraus. Erst wenn der Tank voller wird, erhöht sich der Wasserdruck und es kommt zu einem immer größeren Volumenstrom bis schließlich der Tank voll ist und der Druck des Zuflusses dafür sorgt, dass der Volumenstrom am Ausfluss gleich dem am Abfluss ist. Da das Messgerät aber weit entfernt vom Tank liegt, misst dieses den ganzen Vorgang erst mit einer gewissen Verzögerung.
 
-Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$. Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, destor größer ist $T_t$.
+{\color{blue}Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$.} Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, destor größer ist $T_t$.
 
 \subsection{Größen}
-Die Eingangsgröße $u(t)$ ist in unserem Beispiel der Volumenstrom am Zufluss, angegeben z.\,B. in $\frac{l}{min}$. Der Zustand $x(t)$ ist der Volumenstrom am Ausfluss und der Ausgang $y(t)$ ist der gemessene Volumenstrom am Messgerät.
+Im folgenden Werden Eingangs-, Zustands- und Ausgangsgrößen des Systems definiert.
+\begin{center}
+    \begin{tabular}{ c|c|l } 
+    Systemtheorie  & Größe im System & Einheit \\
+    \hline
+    $u(t)$ & Volumenstrom & \multirow{3}{3em}{$\frac{l}{min}$ } \\ 
+    $x(t)$ & Volumenstrom am Ausfluss &  \\ 
+    $y(t)$ & gemessene Volumenstrom am Messgerät&   \\ 
+
+    \end{tabular}
+\end{center}
+%Die Eingangsgröße $u(t)$ ist in unserem Beispiel der Volumenstrom am Zufluss, angegeben z.\,B. in $\frac{l}{min}$. Der Zustand $x(t)$ ist der Volumenstrom am Ausfluss und der Ausgang $y(t)$ ist der gemessene Volumenstrom am Messgerät.
 
 
 \subsection{Bezeichnung}
