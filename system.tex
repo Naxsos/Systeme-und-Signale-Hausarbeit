@@ -164,7 +164,7 @@ Die Summanden, in denen $\dot u, \ddot u, \ldots$ vorkommt, können vernachläss
 Darüber hinaus gibt es einen Zusammenhang mit der Ein-/Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Ein-/Ausgangs- Differentialgleichung $y$ korrespondieren. Zur Berechnung werden folgende Formeln verwendet:
 
 \begin{align*}
-    \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
+    \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} c^T \\ C^T A \\ C^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
     \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right)^{-1} \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right)
 \end{align*}
 
@@ -180,7 +180,7 @@ Weiterhin gehen wir bei unserem System davon aus, dass der Tank zu Beginn leer i
 Mit den Anfangswerten lässt sich $x(t)$ und $y(t)$ explizit berechnen:
 
 \begin{align*}
-    x(t) & = e^{A(t-t_0)} * x(0) * \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
+    x(t) & = e^{A(t-t_0)} * x(0) + \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
     y(t) & = Ce^{A(t-t_0)} * x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
 \end{align*}
 
@@ -208,7 +208,9 @@ TODO: JONAS KOMMENTAR: WAS DAVON IST EXPLIZITE ZUSTANDSRAUMDARSTELLUNG UND WAS I
 Aus unserem physikalischen Modells lässt sich folgende Differenzialgleichung ableiten:
 \begin{align*}
     y(t) & = x(t - 2) \\
-    u(t) & = \dot x + x
+    u(t) & = \dot x + x \\
+    \dot x & = u - x\\
+    y(t) & = x(t - 2) \\
 \end{align*}
 
 --> HIER NOCHMAL GROELL NACHFRAGEN
