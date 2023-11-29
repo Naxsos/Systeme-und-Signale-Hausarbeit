@@ -65,9 +65,9 @@ Formel \ref{eq:G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript anal
     \label{eq:G(s)_1}
     G(s) &=& \frac{Y(s)}{U(s)} \\
     \label{eq:G(s)_2}
-    &=& \frac{1 * e^{-2s}}{1+s} \\
+    &=& \frac{1 \cdot e^{-2s}}{1+s} \\
     \label{eq:G(s)_3}
-    &=& \frac{1}{1 + s} * e^{-2s}
+    &=& \frac{1}{1 + s} \cdot e^{-2s}
 \end{eqnarray}
 
 \subsection{Eingabe in Matlab}
@@ -76,7 +76,7 @@ In Computer-Algebra führt man \texttt{s} und \texttt{G(s)} als symbolischen Var
 
 \begin{verbatim}
     syms s, G(s)
-    G(s) =  1 / (1 + s) * exp(-2 * s)
+    G(s) =  1 / (1 + s) \cdot exp(-2 \cdot s)
 \end{verbatim}
 
 Man erhält dasselbe Ergebnis wie bei der obigen manuellen Definition von $s$ und $G(s)$, wenn man den Transfer-Function-Befehl \texttt{tf()} in Matlab verwendet:
@@ -121,7 +121,7 @@ Mit dem Matlab-Befehl \texttt{ss(sys)} (ss steht für State Space) berechnet Mat
 
 Sind die Matrizen $A, B, C, D$ eines Systems bekannt, kommt man mit der folgenden Formel zur Übertragungsfunktion $G(s)$, wobei $I$ die Einheitsmatrix darstellt.
 \[
-    G(s) = C(s * I - A)^{-1} * B + D
+    G(s) = C(s \cdot I - A)^{-1} \cdot B + D
 \]
 
 Sofern die Matrizen gegeben sind, könnte man das System alternativ auch mit der dazugehörigen Zustandsraumdarstellung übergeben, indem \texttt{sys = ss(A, B, C, D)} in Matlab eingegeben wird. Der Befehlt \texttt{tf(sys)} liefert dann die Übertragungsfunktion über die Zustandsraumdarstellung.
@@ -180,8 +180,8 @@ Weiterhin gehen wir bei unserem System davon aus, dass der Tank zu Beginn leer i
 Mit den Anfangswerten lässt sich $x(t)$ und $y(t)$ explizit berechnen:
 
 \begin{align*}
-    x(t) & = e^{A(t-t_0)} * x(0) + \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
-    y(t) & = Ce^{A(t-t_0)} * x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
+    x(t) & = e^{A(t-t_0)} \cdot x(0) + \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
+    y(t) & = Ce^{A(t-t_0)} \cdot x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
 \end{align*}
 
 Hier ist bei der Eingabe in Matlab wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
@@ -218,10 +218,10 @@ Aus unserem physikalischen Modells lässt sich folgende Differenzialgleichung ab
 \subsection{Ein- /Ausgangs Differentialgleichung}
 Für unser System ergibt sich unter Vernachlässigung des Totzeitglieds:
 \begin{align*}
-    G(s) &= \frac{1}{1 + s} * e^{-2s}\\
+    G(s) &= \frac{1}{1 + s} \cdot e^{-2s}\\
 G_{PT_1}(s) =\frac{Y(s)}{U(s)} &= \frac{1}{1 + s} \\
-Y(s)(1+s) &= (1) * U(s) \\
-Y(s) + Y(s) *s &= 1*U(s) \\
+Y(s)(1+s) &= (1) \cdot U(s) \\
+Y(s) + Y(s) \cdot s &= 1\cdot U(s) \\
 \dot y(t) + y(t) &= u(t) 
 \end{align*}
 
@@ -241,9 +241,9 @@ Formel \ref{eq:2G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript ana
     \label{eq:2G(s)_1}
     G(s) &=& \frac{Y(s)}{U(s)} \\
     \label{eq:2G(s)_2}
-    &=& \frac{1 * e^{-2s}}{(1+s)} \\
+    &=& \frac{1 \cdot e^{-2s}}{(1+s)} \\
     \label{eq:2G(s)_3}
-    &=& \frac{1}{1 + s} * e^{-2s}
+    &=& \frac{1}{1 + s} \cdot e^{-2s}
 \end{eqnarray}
 
 \subsection{Systemantworten}
@@ -263,7 +263,7 @@ Mithilfe des Befehls \texttt{ilaplace()}, wird die laplace-Transformierte  Gewic
 Matlab Ausgabe: \texttt{g(t) = heaviside(t - 2)*exp(2 - t)}\\
 Mathematische Notation: 
 \begin{align*}
-    g(t) &=1(t-1)*e^{(t-2)}
+    g(t) &=1(t-1)\cdot e^{(t-2)}
 \end{align*} wobei $1(t)$ für die Heavyside-Funktion steht.
 
 Mit dem Matlab-Befehl \texttt{impulse(sys)} wird ein Plot der Impulsantwort erstellt, was in folgender Abbildung zu sehen ist. 
@@ -308,7 +308,7 @@ Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen
 Matlab Ausgabe: \texttt{h(t) = -heaviside(t - 2)*(exp(2 - t) - 1)}\\
 Mathematische Notation: 
 \begin{align*}
-    h(t) &= -1(t-2)*(e^{(t-2)}-1)
+    h(t) &= -1(t-2)\cdot(e^{(t-2)}-1)
 \end{align*} wobei $1(t)$ für die Heavyside-Funktion steht.
 
 
