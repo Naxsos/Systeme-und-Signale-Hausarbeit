@@ -263,7 +263,7 @@ Mithilfe des Befehls \texttt{ilaplace()}, wird die laplace-Transformierte  Gewic
 Matlab Ausgabe: \texttt{g(t) = heaviside(t - 2)*exp(2 - t)}\\
 Mathematische Notation: 
 \begin{align*}
-    g(t) &=1(t-1)\cdot e^{(t-2)}
+    g(t) &=1(t-2)\cdot e^{(2-t)}
 \end{align*} wobei $1(t)$ für die Heavyside-Funktion steht.
 
 Mit dem Matlab-Befehl \texttt{impulse(sys)} wird ein Plot der Impulsantwort erstellt, was in folgender Abbildung zu sehen ist. 
@@ -308,7 +308,7 @@ Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen
 Matlab Ausgabe: \texttt{h(t) = -heaviside(t - 2)*(exp(2 - t) - 1)}\\
 Mathematische Notation: 
 \begin{align*}
-    h(t) &= -1(t-2)\cdot(e^{(t-2)}-1)
+    h(t) &= -1(t-2)\cdot(e^{(2-1)}-1)
 \end{align*} wobei $1(t)$ für die Heavyside-Funktion steht.
 
 
