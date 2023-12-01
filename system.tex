@@ -381,8 +381,12 @@ Mithilfe des Matlab-Befehls \texttt{fplot(1)} lässt sich das graphisch darstell
  \end{figure}
 
 \subsection{Pol-Nulstellen-Plot}
-Abbildung 9 zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende Matlab-Befehl hierfür lautet \texttt{pzplot(sys)}. Matlab markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems. In unserem Fall hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. Aufgrund dieses negativen Realteils handelt es sich also um eine stabile Polstelle.
-Der Nachteil des Pol-Nullstellen-Plots ist, dass er im Gegensatz zur statischen kennlinie keine Statik-Informationen enthält.
+Abbildung 9 zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende Matlab-Befehl hierfür lautet \texttt{pzplot(sys)}. Matlab markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems (doppelte Polstellen mit doppel-x). In unserem Fall hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. Aufgrund dieses negativen Realteils handelt es sich also um eine grenzstabile Polstelle. Würden alle Polstellen unseres Systems in der offenen linken Halbebene liegen, wäre das System stabil. Da die Polstelle genau auf der Imaginärachse liegt, nennt man das System grenzstabil.
+
+Der Nachteil des Pol-Nullstellen-Plots ist, dass er im Gegensatz zur statischen Kennlinie keine Information über die statische Verstärkung enthält.
+
+die Pole der übertragungsfunktion korrespondieren mit der eigenwerten der system-matrix A unter der Voraussetzung, dass das System vollständig steuerbar und beobachtbar ist.
+DAS HEIßt, es darf keine Pol-Nullstellen-Kürzung auftreten.
 
 \begin{figure}[H]
     \centering
