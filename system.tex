@@ -368,10 +368,22 @@ Bei diesem Bild kann man anderes Eingangssignal wählen und bei Integratoren die
 \subsection{Statische Kennlinie}
 
 Da es sich bei unserem System um ein System mit proportionalen Übertragungsverhalten handelt, entspricht die statische Verstärkung $K = G(0)$ bzw. $K = \lim_{t\to \infty} h(t)$. 
-Somit ergibt sich bei unserem System eine Verstärkung von 1, weshalb die statische Kennlinie nur eine konstante Funktion ist. 
+Somit ergibt sich bei unserem System eine Verstärkung von 1, weshalb die statische Kennlinie nur eine Gerade mit der Steigung 1 ist. 
 
+Wie nehme ich eine statische Kennlinie auf: Ich stelle einen konstanten WErt u ein, warte bis alle Eigenvorgänge abgeklungen sind und lese den zugehörigen y-Wert ab. Das wiederhole ich für verschiedene Punkte und danach verbinde ich alle Punkte durch Linien - Das ist die statische Kennlinie
+
+dcgain(Sys) rechnet K aus.
+
+FIX:::::
 Mithilfe des Matlab-Befehls \texttt{fplot(1)} lässt sich das graphisch darstellen. Der Nachteil der statischen Kennlinie ist, dass sie im Gegensatz zum Pol-Nullstellen-Plot keine Dynamik-Informationen enthält.
 
+
+Wenn ich ein Syystem mit 1 Eingang und 2 Ausgängen habe, dann kann man die statische Kennlinie in einem 2 Balken- / Skalen-Diagramm darstellen.
+2 Eingänge und 1 Ausgang: eine Größe wird diskret, eine kontinuierlich (eine als Scharparameter)
+
+nicht bei 0 abschneiden
+
+achsen benennen mit y und u
 
 \begin{figure}[H]
     \label{fig:staticCurve}
