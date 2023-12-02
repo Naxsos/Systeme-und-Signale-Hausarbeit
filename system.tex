@@ -1,6 +1,4 @@
 Jede Differentialgleichung bekommt Anfangswerte
-Explizite Darstellung Zustandsraum muss dahin wo explizite operator
-implizit raus
 
 \section{Vorgehen in Regelungstechnik}
 Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientierung. Dieser Arbeit liegt die in der Vorlesung behandelte Vorgehensweise in der Regelungstechnik zugrunde, welche nachfolgend erläutert wird.
@@ -98,11 +96,19 @@ Im Folgenden werden die Darstellungen unseres Systems näher beleuchtet. Generel
 
 \subsection{Explizite Darstellung des Übertragungsoperators}
 
-\subsection{Zustandsraumdarstellung}
-Der Zustandsraum lässt sich sowohl implizit als auch explizit darstellen.
+Mit den Anfangswerten lässt sich $x(t)$ und $y(t)$ explizit berechnen:
 
-\subsubsection{Implizite Darstellung}
+\begin{align*}
+    x(t) & = e^{A(t-t_0)} \cdot x(0) + \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
+    y(t) & = Ce^{A(t-t_0)} \cdot x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
+\end{align*}
 
+einsetzen und ausrechnen
+
+Hier ist bei der Eingabe in Matlab wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
+
+\subsection{Implizite Darstellung}
+\subsubsection{Zustandsraumdarstellung}
 Die allgemeine Form der Zustandsraumdarstellung lautet:
 \begin{align*}
     \dot x & = Ax + Bu \nonumber \\
@@ -177,18 +183,6 @@ Weiterhin gehen wir bei unserem System davon aus, dass der Tank zu Beginn leer i
     \left(\begin{array}{c} y \\ \dot y \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right) \\
     \left(\begin{array}{c} x_1 \\ x_2 \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right)
 \end{align*}
-
-
-\subsubsection{Explizite Darstellung}
-
-Mit den Anfangswerten lässt sich $x(t)$ und $y(t)$ explizit berechnen:
-
-\begin{align*}
-    x(t) & = e^{A(t-t_0)} \cdot x(0) + \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
-    y(t) & = Ce^{A(t-t_0)} \cdot x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
-\end{align*}
-
-Hier ist bei der Eingabe in Matlab wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
 
 
 \subsubsection{Integralgleichung}
@@ -279,7 +273,7 @@ Mit dem Matlab-Befehl \texttt{impulse(sys)} wird ein Plot der Impulsantwort erst
     \caption{Impulsantwort}
  \end{figure}
 
-\subsection{Übergangsfunktion (Sprungantwort)}
+\subsubsection{Übergangsfunktion (Sprungantwort)}
 
 Die Spungantwort wird auch als Übergangsfunktion $h(t)$ bezeichnet.
 Sie ist die Antwort des Systems auf den Einheitssprung $\sigma (t)$.
