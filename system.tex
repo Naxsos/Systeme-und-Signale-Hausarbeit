@@ -357,6 +357,13 @@ Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl inte
     \includegraphics[width=0.8\textwidth]{Bilder/BodePT1Tt.eps}
     \caption{Bode-Plot}
  \end{figure}
+ \begin{figure}[H]
+    \label{fig:bodePlot}
+    \label{fig:lassmich}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/bodeMitZeichen.eps}
+    \caption{Bode-Plot}
+ \end{figure}
 
 Beim Bode-Plot lässt sich das entsprechende Verhalten anhand des Verlaufs zu Beginn des Plots feststellen. Bei P-Verfahlten wäre der Verlauf eine waagerechte Gerade, beim I-Verhalten eine Gerade mit negativer Steitung, beim D-Verhalten eine Gerade mit positiver Steigung. Im Bode-Plot ist eine waagerechte Linie zu erkennen. Das impliziert ein P-Verhalten, was mit dem Verhalten unseres System korrespondiert.
 \subsubsection{Simulink-Simulation}
@@ -378,29 +385,92 @@ Dabei werden verschiedene Blöcke aus der Simulink-Library verwendet.
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/SimulinkEinfachCurve.png}
-    \caption{Theresa}
- \end{figure}
-
- \begin{figure}[H]
-    \centering
     \includegraphics[width=0.8\textwidth]{Bilder/SimulinkKomplex.png}
     \caption{Theresa}
  \end{figure}
-
+Die beiden abgebildeten Simulink-Schlatungen sind äquivalent und haben somit bei gleicher Eingangsfunktionen die gleiche Ausgangfunktion.
+Mit einem Klick auf den Oszilator wird diese Ausgangsfunktion, sowie die am Eingang anliegende Sinus-Funktion in Form eins Graphen ausgegeben (Siehen Abbildung 10 und 11). Dabei ist die blaue Linie die Eingangs-Sinus-Funktion mit einer entsprechenden Frequenz $\omega$ in$\frac{rad}{s}$ und die Rote Linie der Ausgang $y(t)$ unseres Systems. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Bilder/SimulinkOmega2.png}
+    \caption{Ausgangsfunktion bei $\omega = 2$}
+ \end{figure}
  \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/SimulinkKomplexCurve.png}
-    \caption{Theresa}
+    \includegraphics[width=0.6\textwidth]{Bilder/SimulinkOmega6.png}
+    \caption{Ausgangsfunktion bei $\omega = 6$}
  \end{figure}
 
-SImulationsscheme
-Für 2 Frequenzen ausführen, Amplitudenverstärkung und Phasenverstärkung ablesen
-ERgebnis vergleichen mit Bode-Diagramm
-Ergebnis vergleichen mit Handrechnungen  -> Muss das gleiche herauskommen
+\subsubsection{Vergleich Bode-Plot, Simulink und Handrechnung}
+Berechnung des Stationäre Anteils des Ausgangssignals. 
+\begin{align*} 
+    y_{stat} = |\mathcal{G}(j\omega_0)| \cdot A \cdot sin(\omega_0 t+\phi_0 + arg \enspace \mathcal{G}(j\omega))
+\end{align*}
+$|\mathcal{G}(j\omega_0)|$ entspricht der Amplitudenverstärkung und $arg \enspace \mathcal{G}(j\omega)$ der Phasenverschiebung.
+\subsubsection*{Handrechnung}
+\begin{align*} 
+    \mathcal{G}(s) &=  \frac{1}{s+1}\cdot e^{-2s} \\
+    \mathcal{G}(j\omega) &=  \frac{1}{j\omega+1} \cdot e^{-2j\omega} \\
+\end{align*} 
+Berechnung der Amplitudenverstärkgung für $ \omega = 6$: \\
+\begin{align*} 
+    \mathcal{G}(j6) &=  \frac{1}{6j+1} \cdot e^{-2j\cdot 6}\\
+    |\mathcal{G}(j6)| &=  \Bigl| \frac{1}{6j+1} \cdot e^{-12j}\Bigr| \\
+    |\mathcal{G}(j6)| &=  \frac{1}{\sqrt{37}}\cdot 1 \approx 0.1644 \\
+\end{align*} 
 
-Danach gleiche Schaltung in Integratorform
-Bei diesem Bild kann man anderes Eingangssignal wählen und bei Integratoren die Anfangswerte angegebenFormel hinschreiben
+Berechnung der Phasenverschiebung für $ \omega = 6$: 
+
+Es gilt: $e^{-aj} = -a$
+\begin{align*} 
+    arg \enspace \mathcal{G}(j2) &=   0- arctan \Bigl( \frac{6}{1} \Bigl) -12  \\
+    arg \enspace \mathcal{G}(j2) &=  -1.4-12 = -13.4 \\
+             \Rightarrow  -13.4 \cdot \frac{180}{3,14} & = -768.726 \approx -769^{\circ}
+\end{align*} 
+\subsubsection*{Vergleich}
+Im Bodeplot lässt sich im oberen Bild für $\omega = 6$ eine Verstärkung von $-15.7 dB$ ablesen. Daraus lässt sich der Verstärkungsfaktor errechnen:
+\begin{align*}
+    20 log(\mathcal{K}) &= - 15.7\\
+        \mathcal{K} &= 10^{-\frac{15.7}{20}}\\
+        \mathcal{K} & = 0.1640
+\end{align*}
+Der aus der Übertragungsfunktion errechnete Wert von $1.644$ entspricht mit einer minimalen Abweichung dem Wert, der sich aus dem Bode-Diagramm ablesen lässt. 
+Dieder Wert lässt sich ebenfalls graphisch aus dem Simulink-Plot ablesen:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Bilder/Simulink-Amplitude.png}
+    \caption[width=0.6\textwidth]{Messung der Aplitude der eingeschwungnen \\Ausgansfunktion liegt ungefäht bei 0.17}
+ \end{figure}
+
+Im Bodeplot lässt sich im unteren Bild für $\omega = 6$ ein Winkel von $-769^{\circ}$ ablesen. Dieser Wert stimmt mit der analytischen Rechnung überein.
+
+Die Phasenverschiebung in Grad wird berechnet durch $\phi = (\frac{\Delta t}{T} +T_t ) \cdot 360$, wobei $T$ die Periodendauer ist, die mit Hilfe der Formel $T = \frac{2\pi}{\omega} = \frac{2\pi}{6} = \frac{\pi}{3}$ ausgerechnet werden kann.
+
+Aus dem Simulink-Plot kann ein $\Delta t = 0.142s$ abgelesen werden:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Bilder/SimulinkPhase.png}
+    \caption[width=0.6\textwidth]{Messung der Zeitdifferenz zwischen der \\ Sinusschwingung und der eingeschwungnen Ausgansfunktion}
+ \end{figure}
+
+Alle Werte werden in die Formel eingsetzt:
+\begin{align*}
+    \phi &= (\frac{\Delta t}{T} +T_t ) \cdot 360 \\
+    \phi &= (\frac{0.142 \cdot 3}{\pi} +2 ) \cdot 360 \\
+    \phi &= 768.81^{\circ} \approx 769^{\circ}
+\end{align*}
+Folglich stimmt die abgelesene Phasenverschiebung aus Simulink mit der per Hand errechneten Lösung, sowie der Lösung aus dem Bode-Diagramm überein.
+
+
+%SImulationsscheme
+%Für 2 Frequenzen ausführen, Amplitudenverstärkung und Phasenverstärkung ablesen
+%ERgebnis vergleichen mit Bode-Diagramm
+%Ergebnis vergleichen mit Handrechnungen  -> Muss das gleiche herauskommen
+
+%Danach gleiche Schaltung in Integratorform
+%Bei diesem Bild kann man anderes Eingangssignal wählen und bei Integratoren die Anfangswerte %angegebenFormel hinschreiben
 
 \subsection{Statische Kennlinie}
 
