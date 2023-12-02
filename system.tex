@@ -1,4 +1,6 @@
 Jede Differentialgleichung bekommt Anfangswerte
+
+
 Abbildungsbenennungen
 
 \section{Vorgehen in Regelungstechnik}
@@ -79,13 +81,13 @@ In Computer-Algebra führt man \texttt{s} und \texttt{G(s)} als symbolischen Var
 
 \begin{verbatim}
     syms s, G(s)
-    G(s) =  1 / (1 + s) \cdot exp(-2 \cdot s)
+    G(s) =  1 / (1 + s) * exp(-2 * s)
 \end{verbatim}
 
 Man erhält dasselbe Ergebnis wie bei der obigen manuellen Definition von $s$ und $G(s)$, wenn man den Transfer-Function-Befehl \texttt{tf()} in Matlab verwendet:
 
 \begin{verbatim}
-    sys = tf([1], [1, 1],\textquotedbl IODelay\textquotedbl, 2)
+    sys = tf([1], [1, 1], "IODelay", 2)
 \end{verbatim}
 
 Hierbei werden in den beiden Vektoren die Koeffizienten vor $s^0$, $s^1$, $s^2$, \ldots im Zähler und im Nenner angegeben. Bei komplizierteren Gleichungen hilft dabei der Befehl \texttt{expand(G(s))}, der einem die benötigten Koeffizienten liefert, was hier jedoch nicht nötig war. Darauf folgt der Befehl \texttt{\textquotedbl IODelay\textquotedbl}, mit dem die Totzeit $t = 2$ angegeben wird.
@@ -100,13 +102,20 @@ Im Folgenden werden die Darstellungen unseres Systems näher beleuchtet. Generel
 Mit den Anfangswerten lässt sich $x(t)$ und $y(t)$ explizit berechnen:
 
 \begin{align*}
-    x(t) & = e^{A(t-t_0)} \cdot x(0) + \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau \nonumber \\
-    y(t) & = Ce^{A(t-t_0)} \cdot x(0) + C \int_{0}^{t} e^{A(t-t_0)}Bu(\tau) \,d\tau + Du(t)
+    x(t) & = e^{At} \cdot x(0) + \int_{0}^{t} e^{A(t-\tau)}Bu(\tau) \,d\tau \nonumber \\
+    y(t) & = Ce^{At} \cdot x(0) + C \int_{0}^{t} e^{A(t-\tau)}Bu(\tau) \,d\tau + Du(t)
 \end{align*}
 
-einsetzen und ausrechnen
-
 Hier ist bei der Eingabe in Matlab wichtig zu beachten, dass für $e^{(\ldots)}$ nicht \texttt{exp}, sondern \texttt{expm}, verwendet wird, da man hier die Matrizenmultiplikation benötigt.
+
+Für unsere System ergibt sich durch Einsetzen der jeweiligen Werte und der Heaviside-Funktion als Eingang:
+
+\begin{align*}
+    x(t) & = \int_{0}^{t} \begin{bmatrix}e^{-t + \tau}\end{bmatrix} \,d\tau \\
+    x(t) & = \int_{0}^{t} \begin{bmatrix}e^{-t} * e^{\tau}\end{bmatrix} \,d\tau \\
+    x(t) & = e^{-t} * e^{t} - e^{-t} * e^{0} \\
+    x(t) & = 1 - e^{-t}
+\end{align*}
 
 \subsection{Implizite Darstellung}
 \subsubsection{Zustandsraumdarstellung}
@@ -158,7 +167,6 @@ In unserem System mit $T_t = 2$ bedeutet das also:
     \end{bmatrix}u(t - 2)
 \end{align*}
 
---> HIER NOCHMAL GROELL NACHFRAGEN
 Anhand der Matrix $D$, die in unserem nur eine Nullmatrix ist, lässt sich ablesen, dass es sich hier um ein nicht sprungfähiges System handelt.
 
 Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion erstellt werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
@@ -204,7 +212,7 @@ Für unser System ergibt sich somit:
 \subsubsection{Differentialgleichung}
 Aus unserem physikalischen Modell lässt sich folgende Differenzialgleichung ableiten:
 \begin{align*}
-    \dot x & = u - x\\
+    \dot x & = u - x \enspace \enspace \enspace \enspace \enspace \enspace \enspace \text { mit } x(0) = 0\\
     y(t) & = x(t - 2) \\
 \end{align*}
 
@@ -237,9 +245,9 @@ Formel \ref{eq:2G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript ana
     \label{eq:2G(s)_1}
     G(s) &=& \frac{Y(s)}{U(s)} \\
     \label{eq:2G(s)_2}
-    &=& \frac{1 \cdot e^{-2s}}{(1+s)} \\
+    G(s) &=& \frac{1 \cdot e^{-2s}}{(1+s)} \\
     \label{eq:2G(s)_3}
-    &=& \frac{1}{1 + s} \cdot e^{-2s}
+    G(s) &=& \frac{1}{1 + s} \cdot e^{-2s}
 \end{eqnarray}
 
 \subsection{Systemantworten}
