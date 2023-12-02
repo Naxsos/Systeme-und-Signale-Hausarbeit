@@ -1,4 +1,5 @@
 Jede Differentialgleichung bekommt Anfangswerte
+Abbildungsbenennungen
 
 \section{Vorgehen in Regelungstechnik}
 Zur Ermöglichung einer strukturierten Vorgehensweise bedarf es einer Orientierung. Dieser Arbeit liegt die in der Vorlesung behandelte Vorgehensweise in der Regelungstechnik zugrunde, welche nachfolgend erläutert wird.
@@ -221,8 +222,11 @@ In dieser Differentialgleichung taucht die Totzeit $T_t$ nicht auf, da das Totze
 \begin{align*}
     \dot y(t) + y(t) &= u(t - 2) 
 \end{align*}
---> HIER NOCHMAL GROELL NACHFRAGEN
 
+Vergessen werden darf auch hier nicht der Anfangswert. Es gilt:
+\begin{align*}
+    y(0) &= 0 
+\end{align*}
 
 
 \subsection{Übertragungsfunktion}
@@ -299,7 +303,7 @@ Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen
 Matlab Ausgabe: \texttt{h(t) = -heaviside(t - 2)*(exp(2 - t) - 1)}\\
 Mathematische Notation: 
 \begin{align*}
-    h(t) &= -1(t-2)\cdot(e^{(2-1)}-1)
+    h(t) &= -1(t-2)\cdot(e^{(2-t)}-1)
 \end{align*} wobei $1(t)$ für die Heavyside-Funktion steht.
 
 
@@ -351,12 +355,36 @@ Beim Bode-Plot lässt sich das entsprechende Verhalten anhand des Verlaufs zu Be
 Mithilfe von Simulink lässt sich die Übergangsfunktion simulieren. Die Schaltung zeigt den Aufbau mit einem Sinus-Signal als Eingang.
 Dabei werden verschiedene Blöcke aus der Simulink-Library verwendet. 
 \begin{enumerate}
+    \item Sin Wave (Source-Ordner)
     \item Transfer Function (Continuous-Ordner)
     \item Transport Delay (Continuous-Ordner)
     \item Scope (Sink-Ordner)
-    \item Sin Wave (Source-Ordner)
 \end{enumerate}
 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/SimulinkEinfach.png}
+    \caption{Theresa}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/SimulinkEinfachCurve.png}
+    \caption{Theresa}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/SimulinkKomplex.png}
+    \caption{Theresa}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/SimulinkKomplexCurve.png}
+    \caption{Theresa}
+ \end{figure}
 
 SImulationsscheme
 Für 2 Frequenzen ausführen, Amplitudenverstärkung und Phasenverstärkung ablesen
@@ -368,25 +396,22 @@ Bei diesem Bild kann man anderes Eingangssignal wählen und bei Integratoren die
 
 \subsection{Statische Kennlinie}
 
-Da es sich bei unserem System um ein System mit proportionalen Übertragungsverhalten handelt, entspricht die statische Verstärkung $K = G(0)$ bzw. $K = \lim_{t\to \infty} h(t)$. 
+Da es sich bei unserem System um ein System mit proportionalen Übertragungsverhalten handelt, entspricht die statische Verstärkung $K = G(0)$ bzw. $K = \lim_{t\to \infty} h(t)$. Diese lässt sich in Matlab auch mit dem Befehl \texttt{dcgain(sys)} berechnen. 
 Somit ergibt sich bei unserem System eine Verstärkung von 1, weshalb die statische Kennlinie nur eine Gerade mit der Steigung 1 ist. 
 
-Wie nehme ich eine statische Kennlinie auf: Ich stelle einen konstanten WErt u ein, warte bis alle Eigenvorgänge abgeklungen sind und lese den zugehörigen y-Wert ab. Das wiederhole ich für verschiedene Punkte und danach verbinde ich alle Punkte durch Linien - Das ist die statische Kennlinie
+In weniger trivialen Fällen lässt sich die statische Kennlinie folgendermaßen aufnehmen: Man stellt einen Konstanten Wert $c$ für $u(t)$ ein, wartet bis alle Eigenvorgänge abgeklungen sind und liest dann den zugehörigen y-Wert ab. Dies wiederholt man für verschiedene $c$ und verbindet schließlich alle Punkte durch eine Line, welche letztendlich die statische Kennlinie darstellt. Dieses Verfahren erklärt auch, wieso bei instabilen System keine statische Kennlinie gezeichnet werden kann: Diese schwingen sich nie ein, die Eigenvorgänge klingen nie ab.
 
-dcgain(Sys) rechnet K aus.
+Noch ein anderer Weg, die statische Versärkungsmatrix $K$ auszurechnen (im mehrvariablen Fall ist $K$ eine Matrix, die die jeweiligen statischen Verstärkung der einzelnen Eingangssignale angibt), verwendet die Matrizen aus dem Zustandsraum. Dabei wird die Ableitung von $x$ gleich 0 gesetzt, die Gleichung umgestellt, und in die Gleichung von $y$ eingesetzt. Stell man diese Gleichung erneut um, erhält man K:
+\begin{align*}
+\dot x &= Ax + Bu \\
+0 &= Ax + Bu \\
+x &= -A^{-1}Bu\\ \\
+y &= Cx + Du \\
+y &= (-A^{-1}Bu) + Du \\
+K &= -CA^{-1}Bu + D
+\end{align*}
 
-FIX:::::
-Mithilfe des Matlab-Befehls \texttt{fplot(1)} lässt sich das graphisch darstellen. Der Nachteil der statischen Kennlinie ist, dass sie im Gegensatz zum Pol-Nullstellen-Plot keine Dynamik-Informationen enthält.
-
-
-Wenn ich ein Syystem mit 1 Eingang und 2 Ausgängen habe, dann kann man die statische Kennlinie in einem 2 Balken- / Skalen-Diagramm darstellen.
-2 Eingänge und 1 Ausgang: eine Größe wird diskret, eine kontinuierlich (eine als Scharparameter)
-
-nicht bei 0 abschneiden
-
-achsen benennen mit y und u
-
-erklären wie man vom zustandsraum zur statischen verstärkungsmatrix
+Mithilfe des Matlab-Befehls \texttt{fplot(@(x) 1 * x)} lässt sich unsere statische Kennlinie graphisch darstellen. 
 
 \begin{figure}[H]
     \label{fig:staticCurve}
@@ -395,18 +420,26 @@ erklären wie man vom zustandsraum zur statischen verstärkungsmatrix
     \caption{Statische Kennlinie}
  \end{figure}
 
+Bei Systemen mit einem Eingang und zwei Ausgängen verwendet man stattdessen ein 2-Balken-Diagramm, bei zwei Eingängen und einem Ausgang wird die eine Eingangsgröße diskret und die andere kontinuierlich dargestellt, wodurch sich eine Funktionenschar ergibt. 
+
+Der Nachteil der statischen Kennlinie ist, dass sie im Gegensatz zum Pol-Nullstellen-Plot keine Dynamik-Informationen enthält.
+
 \subsection{Pol-Nulstellen-Plot}
-Abbildung 9 zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende Matlab-Befehl hierfür lautet \texttt{pzplot(sys)}. Matlab markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems (doppelte Polstellen mit doppel-x). In unserem Fall hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei s = -1, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. Aufgrund dieses negativen Realteils handelt es sich also um eine grenzstabile Polstelle. Würden alle Polstellen unseres Systems in der offenen linken Halbebene liegen, wäre das System stabil. Da die Polstelle genau auf der Imaginärachse liegt, nennt man das System grenzstabil.
-
-Der Nachteil des Pol-Nullstellen-Plots ist, dass er im Gegensatz zur statischen Kennlinie keine Information über die statische Verstärkung enthält.
-
-die Pole der übertragungsfunktion korrespondieren mit der eigenwerten der system-matrix A unter der Voraussetzung, dass das System vollständig steuerbar und beobachtbar ist.
-DAS HEIßt, es darf keine Pol-Nullstellen-Kürzung auftreten.
+Abbildung 9 zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende Matlab-Befehl hierfür lautet \texttt{pzplot(sys)}. Matlab markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems (doppelte Polstellen mit doppel-\textbf{x}). \\
+In unserem Fall hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei $s = -1$, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. \\
+Aufgrund dieses negativen Realteils handelt es sich also um eine grenzstabile Polstelle. Würden alle Polstellen unseres Systems in der offenen linken Halbebene liegen, wäre das System stabil. Da die Polstelle genau auf der Imaginärachse liegt, nennt man das System grenzstabil.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/PoleZeroPT1Tt.eps}
     \caption{Pol-Nulstellen-Plot}
  \end{figure}
+
+ Die Pole der Übertragungsfunktion korrespondieren mit den Eigenwerten der System-Matrix $A$ unter der Voraussetzung, dass das System vollständig steuerbar und beobachtbar ist.
+ Das heißt, dass keine Pol-Nullstellen-Kürzung auftreten darf.
+ In unserem System ist das ziemlich simple: Unsere System-Matrix $A$ enthält nur das Element $-1$ und passt somit zur Polstelle $s = -1$.
+
+ Der Nachteil des Pol-Nullstellen-Plots ist, dass er im Gegensatz zur statischen Kennlinie keine Information über die statische Verstärkung enthält.
+
  %Warum auch immer muss hier das Label nach die Figure und nicht da rein, sonst haben wir ein Problem
 
