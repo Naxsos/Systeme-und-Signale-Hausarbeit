@@ -174,8 +174,8 @@ Die Summanden, in denen $\dot u, \ddot u, \ldots$ vorkommt, können vernachläss
 Darüber hinaus gibt es einen Zusammenhang mit der Ein-/Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Ein-/Ausgangs- Differentialgleichung $y$ korrespondieren. Zur Berechnung werden folgende Formeln verwendet:
 
 \begin{align*}
-    \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} c^T \\ C^T A \\ C^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
-    \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) &= \left(\begin{array}{l} C^T \\ C^T A \\ C^T A^2 \end{array}\right)^{-1} \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right)
+    \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} c^T \\ c^T A \\ c^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
+    \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) &= \left(\begin{array}{l} c^T \\ c^T A \\ c^T A^2 \end{array}\right)^{-1} \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right)
 \end{align*}
 
 Weiterhin gehen wir bei unserem System davon aus, dass der Tank zu Beginn leer ist, somit kein Abfluss vorliegt. Daraus ergibt sich $x(0^-) = 0$ und mit voriger Formel gilt:
@@ -200,18 +200,12 @@ Für unser System ergibt sich somit:
     \end{bmatrix}u(\tau)\,d\tau
 \end{align*}
 
-TODO: JONAS KOMMENTAR: WAS DAVON IST EXPLIZITE ZUSTANDSRAUMDARSTELLUNG UND WAS IST INTEGRALGLEICHUNG
-
 \subsubsection{Differentialgleichung}
-Aus unserem physikalischen Modells lässt sich folgende Differenzialgleichung ableiten:
+Aus unserem physikalischen Modell lässt sich folgende Differenzialgleichung ableiten:
 \begin{align*}
-    y(t) & = x(t - 2) \\
-    u(t) & = \dot x + x \\
     \dot x & = u - x\\
     y(t) & = x(t - 2) \\
 \end{align*}
-
---> HIER NOCHMAL GROELL NACHFRAGEN
 
 \subsection{Ein- /Ausgangs Differentialgleichung}
 Für unser System ergibt sich unter Vernachlässigung des Totzeitglieds:
@@ -248,9 +242,8 @@ Formel \ref{eq:2G(s)_1} zeigt die Übertragungsfunktion die in diesem Skript ana
 Im Folgenden werden die Antworten des Systems auf den Dirac-Impuls $\delta(t)$ und den Einheitssprung $\sigma (t)$ näher erläutert.
 Die Sprungantwort $h(t)$ und die Impulsantwort $g(t)$ sind jeweils ineinander überführbar: Durch Differenzieren von $h(t)$ erhält man $g(t)$ und durch Integrieren von $g(t)$ erhält man $h(t)$.
 \subsubsection{Gewichtsfunktion (Impulsantwort)}
-TODO: JONAS KOMMENTAR: PASST DAS VON DER BENENNUNG?
-Die Gewichtsfunktion $g(t)$ wird auch als Impulsantwort bezeichnet.
-Die Impulsantwort ist die Antwort eines Sytems auf einen Dirac-Impuls $\delta(t)$.\\
+Die Impulsantwort bezeichnet die abgetastete Antwort auf den technischen Dirac-Impuls.
+Die Gewichtsfunktion $g(t)$ ist die Antwort eines Sytems auf einen Dirac-Impuls $\delta(t)$.\\
 In Matlab lässt sich die Gewichtsfunktion sowohl graphisch ausgeben als auch analytisch berechnen.
 Mithilfe des Befehls \texttt{ilaplace()}, wird die laplace-Transformierte  Gewichtsfunktion $g(t)$ zurückliefert:
 \begin{verbatim}
@@ -275,8 +268,8 @@ Mit dem Matlab-Befehl \texttt{impulse(sys)} wird ein Plot der Impulsantwort erst
 
 \subsubsection{Übergangsfunktion (Sprungantwort)}
 
-Die Spungantwort wird auch als Übergangsfunktion $h(t)$ bezeichnet.
-Sie ist die Antwort des Systems auf den Einheitssprung $\sigma (t)$.
+Die Spungantwort bezeichnet die abgetastete Antwort des Systems auf den technischen Einheitssorung.
+Übergangsfunktion $h(t)$  ist die Antwort des Systems auf den Einheitssprung $\sigma (t)$.
 Ein Beipsiel ist die Heaviside-Funktion, die wie folgt definiert ist:
 
 \[
@@ -353,8 +346,18 @@ Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl inte
     \caption{Bode-Plot}
  \end{figure}
 
+Beim Bode-Plot lässt sich das entsprechende Verhalten anhand des Verlaufs zu Beginn des Plots feststellen. Bei P-Verfahlten wäre der Verlauf eine waagerechte Gerade, beim I-Verhalten eine Gerade mit negativer Steitung, beim D-Verhalten eine Gerade mit positiver Steigung. Im Bode-Plot ist eine waagerechte Linie zu erkennen. Das impliziert ein P-Verhalten, was mit dem Verhalten unseres System korrespondiert.
 \subsubsection{Simulink-Simulation}
 Mithilfe von Simulink lässt sich die Übergangsfunktion simulieren. Die Schaltung zeigt den Aufbau mit einem Sinus-Signal als Eingang.
+Dabei werden verschiedene Blöcke aus der Simulink-Library verwendet. 
+\begin{enumerate}
+    \item Transfer Function (Continuous-Ordner)
+    \item Transport Delay (Continuous-Ordner)
+    \item Scope (Sink-Ordner)
+    \item Sin Wave (Source-Ordner)
+\end{enumerate}
+
+
 SImulationsscheme
 Für 2 Frequenzen ausführen, Amplitudenverstärkung und Phasenverstärkung ablesen
 ERgebnis vergleichen mit Bode-Diagramm
