@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.23)  4 DEC 2023 17:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.23)  4 DEC 2023 17:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -618,10 +618,6 @@ File: Bilder/SimulinkOmega6.png Graphic file (type png)
 Package pdftex.def Info: Bilder/SimulinkOmega6.png  used on input line 398.
 (pdftex.def)             Requested size: 179.25113pt x 118.30025pt.
  [11 <./Bilder/SimulinkEinfach.png> <./Bilder/SimulinkKomplex.png> <./Bilder/SimulinkOmega2.png> <./Bilder/SimulinkOmega6.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 418--420
-
- []
-
 Package epstopdf Info: Source file: <Bilder/bodeMitZeichen.eps>
 (epstopdf)                    date: 2023-12-02 21:46:32
 (epstopdf)                    size: 28026 bytes
@@ -629,23 +625,23 @@ Package epstopdf Info: Source file: <Bilder/bodeMitZeichen.eps>
 (epstopdf)                    date: 2023-12-02 21:46:32
 (epstopdf)                    size: 11493 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/bodeMitZeichen-eps-converted-to.pdf Bilder/bodeMitZeichen.eps>
-(epstopdf)             \includegraphics on input line 441.
+(epstopdf)             \includegraphics on input line 444.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/bodeMitZeichen-eps-converted-to.pdf, id=260, 1566.85374pt x 990.70125pt>
 File: Bilder/bodeMitZeichen-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/bodeMitZeichen-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/bodeMitZeichen-eps-converted-to.pdf  used on input line 441.
+Package pdftex.def Info: Bilder/bodeMitZeichen-eps-converted-to.pdf  used on input line 444.
 (pdftex.def)             Requested size: 318.67207pt x 201.49268pt.
-[12 <./Bilder/bodeMitZeichen-eps-converted-to.pdf>]
+ [12 <./Bilder/bodeMitZeichen-eps-converted-to.pdf>]
 <Bilder/Simulink-Amplitude.png, id=274, 1514.65875pt x 999.735pt>
 File: Bilder/Simulink-Amplitude.png Graphic file (type png)
 <use Bilder/Simulink-Amplitude.png>
-Package pdftex.def Info: Bilder/Simulink-Amplitude.png  used on input line 462.
+Package pdftex.def Info: Bilder/Simulink-Amplitude.png  used on input line 465.
 (pdftex.def)             Requested size: 239.00557pt x 157.74893pt.
 <Bilder/SimulinkPhase.png, id=275, 1514.65875pt x 999.735pt>
 File: Bilder/SimulinkPhase.png Graphic file (type png)
 <use Bilder/SimulinkPhase.png>
-Package pdftex.def Info: Bilder/SimulinkPhase.png  used on input line 469.
+Package pdftex.def Info: Bilder/SimulinkPhase.png  used on input line 472.
 (pdftex.def)             Requested size: 239.00557pt x 157.74893pt.
  [13 <./Bilder/Simulink-Amplitude.png> <./Bilder/SimulinkPhase.png>]
 Package epstopdf Info: Source file: <Bilder/StaticCurvePT1Tt.eps>
@@ -655,12 +651,12 @@ Package epstopdf Info: Source file: <Bilder/StaticCurvePT1Tt.eps>
 (epstopdf)                    date: 2023-12-02 12:12:00
 (epstopdf)                    size: 5775 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/StaticCurvePT1Tt-eps-converted-to.pdf Bilder/StaticCurvePT1Tt.eps>
-(epstopdf)             \includegraphics on input line 529.
+(epstopdf)             \includegraphics on input line 532.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/StaticCurvePT1Tt-eps-converted-to.pdf, id=285, 562.1pt x 421.575pt>
 File: Bilder/StaticCurvePT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/StaticCurvePT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/StaticCurvePT1Tt-eps-converted-to.pdf  used on input line 529.
+Package pdftex.def Info: Bilder/StaticCurvePT1Tt-eps-converted-to.pdf  used on input line 532.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
  [14]
 Package epstopdf Info: Source file: <Bilder/PoleZeroPT1Tt.eps>
@@ -670,12 +666,12 @@ Package epstopdf Info: Source file: <Bilder/PoleZeroPT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:50:31
 (epstopdf)                    size: 41857 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/PoleZeroPT1Tt-eps-converted-to.pdf Bilder/PoleZeroPT1Tt.eps>
-(epstopdf)             \includegraphics on input line 546.
+(epstopdf)             \includegraphics on input line 549.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/PoleZeroPT1Tt-eps-converted-to.pdf, id=290, 562.1pt x 421.575pt>
 File: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/PoleZeroPT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf  used on input line 546.
+Package pdftex.def Info: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf  used on input line 549.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
  [15 <./Bilder/StaticCurvePT1Tt-eps-converted-to.pdf>]) [16 <./Bilder/PoleZeroPT1Tt-eps-converted-to.pdf>] (./main.aux (./system.aux))
 
@@ -693,7 +689,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  94i,15n,92p,768b,405s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (16 pages, 947536 bytes).
+Output written on main.pdf (16 pages, 947770 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  304 compressed objects within 4 object streams
