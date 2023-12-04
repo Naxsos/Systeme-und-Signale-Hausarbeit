@@ -405,10 +405,10 @@ Im Folgenden werden die Phasenverschiebung und Amplitudenverstärkung unseres Sy
 
 Für die Statik-Information $y_{stat}$ gilt:
 \begin{align*} 
-    y_{stat} = |\mathcal{G}(j\omega_0)| \cdot A \cdot sin(\omega_0 t+\phi_0 + arg \enspace \mathcal{G}(j\omega))
+    y_{stat} = |\mathcal{G}(j\omega_0)| \cdot A \cdot sin(\omega_0 t+\phi_0 + arg \enspace \mathcal{G}(j\omega_0))
 \end{align*}
 
-Dabei entspricht $|\mathcal{G}(j\omega_0)|$ der Amplitudenverstärkung und $arg \enspace \mathcal{G}(j\omega)$ der Phasenverschiebung.
+Dabei entspricht $|\mathcal{G}(j\omega_0)|$ der Amplitudenverstärkung und $arg \enspace \mathcal{G}(j\omega_0)$ der Phasenverschiebung.
 
 \subsubsection{Handrechnung}
 Berechnung des Frequenzgangs:
@@ -416,13 +416,13 @@ Berechnung des Frequenzgangs:
     \mathcal{G}(s) &=  \frac{1}{s+1}\cdot e^{-2s} \\
     \mathcal{G}(j\omega) &=  \frac{1}{j\omega+1} \cdot e^{-2j\omega} \\
 \end{align*} 
-Berechnung der Amplitudenverstärkung für $ \omega = 6$: \\
+Berechnung der Amplitudenverstärkung für $ \omega_0 = 6$: \\
 \begin{align*} 
     \mathcal{G}(j6) &=  \frac{1}{6j+1} \cdot e^{-2j\cdot 6}\\
     |\mathcal{G}(j6)| &=  \Bigl| \frac{1}{6j+1} \cdot e^{-12j}\Bigr| \\
     |\mathcal{G}(j6)| &=  \frac{1}{\sqrt{37}}\cdot 1 \approx 0.1644 \\
 \end{align*} 
-Berechnung der Phasenverschiebung für $ \omega = 6$: 
+Berechnung der Phasenverschiebung für $ \omega_0 = 6$: 
 
 Für das Argument $arg$ eines komplexen Bruches gilt: \\
 $arg(\frac{a + bj}{c + dj}) = WinkelZ\ddot ahler - WinkelNenner = arctan\frac{d}{c} - arctan\frac{b}{a}$ \\
@@ -439,10 +439,10 @@ Für das Argument $arg$ einer Zeitverzögerung gilt: $arg \enspace e^{-aj} = -a$
     \label{fig:lassmich}
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/bodeMitZeichen.eps}
-    \caption{Bode-Plot mit Zusatzinformationen an der Stelle $ \omega = 6$}
+    \caption{Bode-Plot mit Zusatzinformationen an der Stelle $ \omega_0 = 6$}
  \end{figure}
 
-Im Bodeplot lässt sich im oberen Bild für $\omega = 6$ eine Verstärkung von $-15.7 dB$ ablesen. Daraus lässt sich der Verstärkungsfaktor errechnen:
+Im Bodeplot lässt sich im oberen Bild für $\omega_0 = 6$ eine Verstärkung von $-15.7 dB$ ablesen. Daraus lässt sich der Verstärkungsfaktor errechnen:
 \begin{align*}
     20 log(\mathcal{K}) &= - 15.7\\
         \mathcal{K} &= 10^{-\frac{15.7}{20}}\\
