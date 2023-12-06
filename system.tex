@@ -403,9 +403,13 @@ Mit einem Klick auf den Oszillator wird diese Ausgangsfunktion sowie die am Eing
 \subsection{Vergleich Bode-Plot, Simulink und Handrechnung}
 Im Folgenden werden die Phasenverschiebung und Amplitudenverstärkung unseres Systems anhand des Bode-Diagramms, der Simulink-Schaltung und einer Handrechnung betrachet und anschließend verglichen.
 
-Für die Statik-Information $y_{stat}$ gilt:
+Erhält das System ein Eingangssignal $u(t) = A \cdot sin(\omega f + \phi)$, so gilt für den Ausgang:
 \begin{align*} 
-    y_{stat} = |\mathcal{G}(j\omega_0)| \cdot A \cdot sin(\omega_0 t+\phi_0 + arg \enspace \mathcal{G}(j\omega_0))
+    y(t) &= Eigenvorgang + y_{stat}(t)
+\end{align*}
+Wobei für die Statik-Information $y_{stat}$ gilt:
+\begin{align*}
+    y_{stat}(t) &= |\mathcal{G}(j\omega_0)| \cdot A \cdot sin(\omega_0 t+\phi_0 + arg \enspace \mathcal{G}(j\omega_0))
 \end{align*}
 
 Dabei entspricht $|\mathcal{G}(j\omega_0)|$ der Amplitudenverstärkung und $arg \enspace \mathcal{G}(j\omega_0)$ der Phasenverschiebung.
