@@ -513,15 +513,16 @@ Somit ergibt sich bei unserem System eine Verstärkung von 1, weshalb die statis
 
 In weniger trivialen Fällen lässt sich die statische Kennlinie folgendermaßen aufnehmen: Man stellt einen konstanten Wert $c$ für $u(t)$ ein, wartet bis alle Eigenvorgänge abgeklungen sind und liest dann den zugehörigen y-Wert ab. Dies wiederholt man für verschiedene $c$ und verbindet schließlich alle Punkte durch eine Line, welche letztendlich die statische Kennlinie darstellt. Dieses Verfahren erklärt, wieso bei instabilen System keine statische Kennlinie gezeichnet werden kann: Diese schwingen sich nie ein, die Eigenvorgänge klingen nie ab.
 
-Noch ein anderer Weg, die statische Versärkungsmatrix $K$ auszurechnen (im mehrvariablen Fall ist $K$ eine Matrix, die die jeweiligen statischen Verstärkung der einzelnen Eingangssignale angibt), verwendet die Zustandsmatrizen. \\
+Noch ein anderer Weg, die statische Verstärkungsmatrix $K$ auszurechnen (im mehrvariablen Fall ist $K$ eine Matrix, die die jeweiligen statischen Verstärkung der einzelnen Eingangssignale angibt), verwendet die Zustandsmatrizen. \\
 Dabei wird die Ableitung von $x$ gleich 0 gesetzt, die Gleichung umgestellt, und in die Gleichung von $y$ eingesetzt. Stellt man diese Gleichung erneut um, erhält man K:
 \begin{align*}
 \dot x &= Ax + Bu \\
-0 &= Ax + Bu \\
+0 &\stackrel{!}{=} Ax + Bu \\
 x &= -A^{-1}Bu\\ \\
 y &= Cx + Du \\
-y &= (-A^{-1}Bu) + Du \\
-K &= -CA^{-1}Bu + D
+y &= C(-A^{-1}Bu) + Du \\
+y &:= Ku \\
+K &= -CA^{-1}B + D
 \end{align*}
 
 Mithilfe des Matlab-Befehls \texttt{fplot(@(x) 1 * x)} lässt sich unsere statische Kennlinie graphisch darstellen. 
