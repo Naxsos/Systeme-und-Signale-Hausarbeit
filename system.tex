@@ -35,9 +35,9 @@ Eine beispielhafte Skizze sieht folgendermaßen aus:
     \includegraphics[width=0.6\textwidth]{Bilder/Tank.png}
     \caption{Skizze des Systems}
  \end{figure}
-Der Ablauf stellt sich wie folgt dar: Über den Zufluss fließt Wasser in den Tank. Da der Abfluss aber deutlich kleiner ist, fließt erstmal deutlich weniger Wasser heraus. Erst wenn der Tank voller wird, erhöht sich der Druck und es kommt zu einem immer größeren Volumenstrom. Schließlich ist der Tank so voll (Wasser und komprimierte Luft), dass der Druck des Zuflusses dafür sorgt, dass der Volumenstrom am Abfluss gleich dem am Zufluss ist. Da das Messgerät aber weit entfernt vom Tank liegt, misst dieses den ganzen Vorgang erst mit einer gewissen Verzögerung.
+Der Ablauf stellt sich wie folgt dar: Über den Zufluss fließt Wasser in den Tank. Da der Abfluss aber deutlich kleiner ist, fließt zu Beginn deutlich weniger Wasser heraus. Erst wenn der Tank voller wird, erhöht sich der Druck und es kommt zu einem immer größeren Volumenstrom. Schließlich ist der Tank so voll (Wasser und komprimierte Luft), dass der Druck des Zuflusses dafür sorgt, dass der Volumenstrom am Abfluss gleich dem am Zufluss ist. Da das Messgerät aber weit entfernt vom Tank liegt, misst dieses den ganzen Vorgang erst mit einer gewissen Verzögerung.
 
-Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$. Aber auch das Verhältnis von Zuflussgröße zu Abflussgrößte beinflusst die Konstante $T_1$. Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, destor größer ist $T_t$.
+Je nachdem wie groß der Tank ist, verändert sich die Konstante $T_1$: Je kleiner der Tank, desto größer ist $T_1$. Aber auch das Verhältnis von Zuflussgröße zu Abflussgröße beeinflusst die Konstante $T_1$. Gleichzeitig bestimmt der Abstand zwischen dem Tank und dem Messgerät die Zeitkonstante $T_t$: Je größer der Abstand, desto größer ist $T_t$.
 
 \subsection{Größen}
 Im Folgenden werden Eingangs-, Zustands- und Ausgangsgrößen des Systems definiert.
@@ -179,15 +179,15 @@ Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des S
 
 \subsubsection*{Anfangswerte}
 
-Für die Simulation sind Anfangswerte notwendig, da der Start der Funktion definiert sein muss. Hierbei werden die linkseitigen Grenzwerte verwendet, da sonst eventuelle Sprünge miteinbezogen würden. Es gilt:
+Für die Simulation sind Anfangswerte notwendig, da der Start der Funktion definiert sein muss. Hierbei werden die linksseitigen Grenzwerte verwendet, da sonst eventuelle Sprünge miteinbezogen würden. Es gilt:
 \begin{align*}
     y(0^-) & = Cx(0^-) + Du(0^-) \\
     \dot y(0^-) & = CAx(0^-) + CBu(0^-) + D \dot u (0^-)
 \end{align*}
 
-Die Summanden, in denen $\dot u, \ddot u, \ldots$ vorkommt, können vernachlässigt werden. Schließlich sind die linksseiten Anfangswerte aufgrund der Heavyside-Funktion gleich 0.
+Die Summanden, in denen $\dot u, \ddot u, \ldots$ vorkommt, können vernachlässigt werden. Schließlich sind die linksseitigen Anfangswerte aufgrund der Heavyside-Funktion gleich 0.
 
-Darüber hinaus gibt es einen Zusammenhang mit der Ein-/Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Ein-/Ausgangs-Differential-gleichung $y$ korrespondieren. Zur Berechnung werden folgende Formeln verwendet:
+Darüber hinaus gibt es einen Zusammenhang mit der Ein-/Ausgangs-Differentialgleichung: Die Anfangswerte des Zustandsraumes $x$ müssen mit denen der Ein-/Ausgangs-Differential-Gleichung $y$ korrespondieren. Zur Berechnung werden folgende Formeln verwendet:
 
 \begin{align*}
     \left(\begin{array}{c} y \\ \dot y \\ \ddot y \end{array}\right) &= \left(\begin{array}{l} c^T \\ c^T A \\ c^T A^2 \end{array}\right) \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right) \\
@@ -202,7 +202,7 @@ Weiterhin gehen wir bei unserem System davon aus, dass der Tank zu Beginn leer i
 
 
 \subsubsection{Integralgleichung}
-Im Gegensatz zur Differentialgleichung ergibt die Integralgleichung \enquote{mild solutions}, welche Sprünge abbilden können. Sie lässt durch Integration der Differentialgleichung mit $\int_{0}^{t}$. \\ 
+Im Gegensatz zur Differentialgleichung ergibt die Integralgleichung \enquote{mild solutions}, welche Sprünge abbilden können. Sie lässt durch Integration der Differentialgleichung mit $\int_{0}^{t}$. \\
 Für die Integralgleichung gilt:
 
 \noindent
@@ -262,7 +262,7 @@ Für unser System mit der Totzeit $T_t = 2$ folgt somit:
 \end{align*}
 
 \subsection{Übertragungsfunktion}
-Die Übertragungsfunktion ergibt sich durch die Laplace-Transformation der Ein-/Ausagangs-Differentialgleichung, wird für unser System in Kapitel 2.3 definiert und lautet: 
+Die Übertragungsfunktion ergibt sich durch die Laplace-Transformation der Ein-/Ausgangs-Differentialgleichung, wird für unser System in Kapitel 2.3 definiert und lautet: 
 
 \begin{align*}
     \mathcal{G}(s) &= \frac{1}{1 + s} \cdot e^{-2s} 
@@ -272,8 +272,8 @@ Die Übertragungsfunktion ergibt sich durch die Laplace-Transformation der Ein-/
 Im Folgenden werden die Antworten des Systems auf den Dirac-Impuls $\delta(t)$ und den Einheitssprung $\sigma (t)$ näher erläutert.
 Die Sprungantwort $h(t)$ und die Impulsantwort $g(t)$ sind jeweils ineinander überführbar: Durch Differenzieren von $h(t)$ erhält man $g(t)$ und durch Integrieren von $g(t)$ erhält man $h(t)$.
 \subsubsection{Gewichtsfunktion (Impulsantwort)}
-Die Impulsantwort bezeichnet die abgetastete Antwort auf den technischen Dirac-Impuls.
-Die Gewichtsfunktion $g(t)$ ist die Antwort eines Sytems auf einen Dirac-Impuls.
+Die Impulsantwort bezeichnet die Antwort auf den technischen Dirac-Impuls.
+Die Gewichtsfunktion $g(t)$ ist die dimensionslose Antwort eines Systems auf einen Dirac-Impuls.
 
 In Matlab lässt sich die Gewichtsfunktion sowohl graphisch als auch analytisch ausgeben.
 \texttt{ilaplace()} liefert die inverse Laplace-Transformation der Übertragungsfunktion:
@@ -300,8 +300,8 @@ Einen Plot der Impulsantwort erhält man mit \texttt{impulse(sys)}.
 \subsubsection{Übergangsfunktion (Sprungantwort)}
 
 Die Spungantwort bezeichnet die Antwort des Systems auf den technischen Einheitssprung.
-Die Übergangsfunktion $h(t)$ ist somit die einheitenlose Antwort des Systems auf den Einheitssprung.
-Ein Beipsiel ist die Heaviside-Funktion, die wie folgt definiert ist:
+Die Übergangsfunktion $h(t)$ ist somit die dimensionslose Antwort des Systems auf den Einheitssprung.
+Ein Beispiel ist die Heaviside-Funktion, die wie folgt definiert ist:
 
 \[
 1 (t) = \begin{cases} 
@@ -319,7 +319,7 @@ In Matlab lässt sich das mit dem Befehl \texttt{step(sys)} simulieren, wodurch 
     \caption{Sprungantwort}
  \end{figure}
 
-Die Übergangsfunktionfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung.
+Die Übergangsfunktion $h(t)$ lässt sich aber auch analytisch berechnen und man erhält die explizite Lösung.
 
 \begin{verbatim}
     H(s) = G(s)/s
@@ -338,7 +338,7 @@ Mathematische Notation:
 Zum Frequenzgang $G(j \omega)$ gelangt man, indem man in $\mathcal{G}(s)$ die Variable $s$ durch $j \omega$ ersetzt.\\
 Das $\omega$ steht für die Frequenz in $\frac{rad}{s}$ (Erinnerung: $\omega = 2\pi f$). Das $j$ steht für die imaginäre Einheit, da $i$ in der Systemtheorie für den Strom steht und somit durch $j$ ersetzt wird.
 
-Das bedeutet, dass $G(j \omega)$ für jede Frequzenz $\omega$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder einen Betrag mit Phase darstellt.
+Das bedeutet, dass $G(j \omega)$ für jede Frequenz $\omega$ eine komplexe Zahl $j$ mit Real- und Imaginärteil oder einen Betrag mit Phase darstellt.
 Systemtheoretisch entspricht der Frequenzgang $G(j\omega)$ einem Schnitt der komplexen Funktion von $\mathcal{G}(s)$ entlang der imaginären Achse: $\mathcal{G}(s)|_{s = j * \omega}$
 
 \subsubsection{Nyquist-Plot (Ortskurve)}
@@ -365,7 +365,7 @@ Matlab zeigt die Kurve des Frequenzgangs $G(j\omega)$ immer für $\omega$ zwisch
  
 \subsubsection{Bode-Diagramm}
 Im Bode-Diagramm sind der Betrag des Frequenzgangs über $\omega$ in Dezibel ($dB$) und die Phase des Frequenzgangs über $\omega$ in Grad ($^\circ$) dargestellt.\\
-Streng genommen wird im oberen Diagramm der Abbildung 6 die Amplitudenverstärkung dargestellt, die ein Sinus-Signal an der Frequenz $\omega$ stationär erfährt (wenn die Eigenvorgänge abgeklungen sind und sich das System eingeschwungen hat), während im unteren Diagramm die Phasenverschiebung zu sehen ist.  
+Streng genommen wird im oberen Diagramm der Abbildung 6 die Amplitudenverstärkung dargestellt, die ein Sinus-Signal an der Frequenz $\omega$ stationär erfährt (wenn die Eigenvorgänge abgeklungen sind und sich das System ein geschwungen hat), während im unteren Diagramm die Phasenverschiebung zu sehen ist.  
 
 Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl intern eine doppelt logarithmische Darstellung verwendet. Die Diagramm-Achse, auf der $\omega$ aufgetragen ist, ist dabei logarithmisch skaliert, damit die Kurven schön aussehen.
 
@@ -393,7 +393,7 @@ Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl inte
 
 \subsubsection{Simulink-Simulation}
 Mithilfe von Simulink lässt sich die Übergangsfunktion simulieren. Die Schaltungen zeigen den Aufbau mit einem Sinus-Signal als Eingang.
-Dabei werden verschiedene Blöcke aus der Simulink-Library verwendet. 
+Dabei werden verschiedene Blöcke aus der Simulink-Bibliothek verwendet. 
 \begin{enumerate}
     \item Sin Wave (Source-Ordner)
     \item Transfer Function (Continuous-Ordner)
@@ -403,14 +403,14 @@ Dabei werden verschiedene Blöcke aus der Simulink-Library verwendet.
     \item Integrator (Continuous-Ordner)
 \end{enumerate}
 
-Eine Möglichkeit ist, in den Block Transfer Function die Übertragungsfunktion einzugeben:
+Eine Möglichkeit ist, in den Block \enquote{Transfer Function} die Übertragungsfunktion einzugeben:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/SimulinkEinfach.png}
     \caption{Darstellung des Systems anhand der Übergangsfunktion}
  \end{figure}
-Die andere Möglichkeit ist, das System mithilfe von Integratoren darszustellen. Man stellt hierfür die Ein-/Ausgangs-Differentialgleichung nach der höchsten Ableitung um und integriert. Das bietet einem den Vorteil, für die Integratoren Anfangswerte setzen zu können:
+Die andere Möglichkeit ist, das System mithilfe von Integratoren darzustellen. Man stellt hierfür die Ein-/Ausgangs-Differentialgleichung nach der höchsten Ableitung um und integriert. Das bietet einem den Vorteil, für die Integratoren Anfangswerte setzen zu können:
 
 
  \begin{figure}[H]
@@ -418,7 +418,7 @@ Die andere Möglichkeit ist, das System mithilfe von Integratoren darszustellen.
     \includegraphics[width=0.8\textwidth]{Bilder/SimulinkKomplex.png}
     \caption{Darstellung des Systems anhand der Ein-/Ausgangs-Differentialgleichung}
  \end{figure}
-Die beiden abgebildeten Simulink-Schlatungen führen bei gleicher Eingangsfunktion auf die gleiche Ausgangfunktion.
+Die beiden abgebildeten Simulink-Schaltungen führen bei gleicher Eingangsfunktion auf die gleiche Ausgangfunktion.
 Mit einem Klick auf den Oszillator wird diese Ausgangsfunktion sowie die am Eingang anliegende Sinus-Funktion in Form eines Graphen ausgegeben (siehe Abbildung 9 \& 10). Dabei ist die blaue Linie die Sinus-Funktion am Eingang mit einer entsprechenden Frequenz $\omega$ in $\frac{rad}{s}$ und die rote Linie die Antwort $y(t)$ unseres Systems.
 
  \begin{figure}[H]
@@ -436,7 +436,7 @@ Mit einem Klick auf den Oszillator wird diese Ausgangsfunktion sowie die am Eing
 \end{figure}
 
 \subsection{Vergleich Bode-Plot, Simulink und Handrechnung}
-Im Folgenden werden die Phasenverschiebung und Amplitudenverstärkung unseres Systems anhand des Bode-Diagramms, der Simulink-Schaltung und einer Handrechnung betrachet und anschließend verglichen. Exemplarisch dient dabei die Frequenz $\omega_0 = 6 \frac{rad}{s}$.
+Im Folgenden werden die Phasenverschiebung und Amplitudenverstärkung unseres Systems anhand des Bode-Diagramms, der Simulink-Schaltung und einer Handrechnung betrachtet und anschließend verglichen. Exemplarisch dient dabei die Frequenz $\omega_0 = 6 \frac{rad}{s}$.
 
 Erhält das System ein Eingangssignal $u(t) = A \cdot sin(\omega f + \phi)$, so gilt für den Ausgang:
 \begin{align*} 
@@ -511,18 +511,19 @@ Im unteren Bild lässt sich für die Phasenverschiebung ein Winkel von $-769^{\c
  \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Bilder/SimulinkPhase.png}
-    \caption[width=0.6\textwidth]{Messung der Zeitdifferenz zwischen der \\ Sinusschwingung und der eingeschwungenen Ausgangsfunktion}
+    \caption[width=0.6\textwidth]{Messung der Zeitdifferenz zwischen der \\ Sinus-Schwingung und der eingeschwungenen Ausgangsfunktion}
  \end{figure}
 
-Die Phasenverschiebung in Grad wird berechnet durch $\phi = (\frac{\Delta t}{T} +T_t ) \cdot 360^{\circ}$, wobei $T$ die Periodendauer ist, die mithilfe von $T = \frac{2\pi}{\omega} = \frac{2\pi}{6} = \frac{\pi}{3}$ ausgerechnet werden kann.
+Die Phasenverschiebung in Grad wird berechnet durch $\varphi = (\frac{\Delta t}{T} +T_t ) \cdot 360^{\circ}$, wobei $T$ die Periodendauer ist, die mithilfe von $T = \frac{2\pi}{\omega} = \frac{2\pi}{6} = \frac{\pi}{3}$ ausgerechnet werden kann.
 
 Aus dem Simulink-Plot kann ein $\Delta t = 0.142s$ abgelesen werden.\\
-Alle Werte werden in die Formel eingsetzt:
+Alle Werte werden in die Formel eingesetzt:
 \begin{align*}
-    \phi &= (\frac{\Delta t}{T} +T_t ) \cdot 360^{\circ} \\
-    \phi &= (\frac{0.142 \cdot 3}{\pi} +2 ) \cdot 360^{\circ} \\
-    \phi & \approx 768.81^{\circ}
+    \varphi &= (\frac{\Delta t}{T} +T_t ) \cdot 360^{\circ} \\
+    \varphi &= (\frac{0.142 \cdot 3}{\pi} +2 ) \cdot 360^{\circ} \\
+    \varphi & \approx 768.81^{\circ}
 \end{align*}
+Da die Ausgangsfunktion nach rechts verschoben ist, muss das Vorzeichen negativ sein, sodass das Ergebnis $-768.81^{\circ}$ beträgt.
 %Folglich stimmt die abgelesene Phasenverschiebung aus Simulink mit der per Hand errechneten Lösung, sowie der Lösung aus dem Bode-Diagramm überein.
 \subsubsection{Vergleich}
 In der folgenden Tabelle sind die einzelnen Werte aus den verschiedenen Ermittlungen miteinander verglichen:
@@ -531,9 +532,9 @@ In der folgenden Tabelle sind die einzelnen Werte aus den verschiedenen Ermittlu
     \begin{tabular}{ c|c|l } 
     Ermittlung & Amplitudenverstärkung & Phasenverschiebung \\
     \hline
-    Handrechnung & $0.1644$ & $768.726^{\circ}$ \\ 
-    Bode-Plot & 0.1640 & $769^{\circ}$ \\ 
-    Simulink & 0.17 & $768.81^{\circ}$ \\ 
+    Handrechnung & $0.1644$ & $-768.726^{\circ}$ \\ 
+    Bode-Plot & 0.1640 & $-769^{\circ}$ \\ 
+    Simulink & 0.17 & $-768.81^{\circ}$ \\ 
     \end{tabular}
 \end{center}
 Es ist zu erkennen, dass die Werte mit minimalen Abweichungen (Rundungsfehler) übereinstimmen. Das bedeutet, dass unsere Rechnungen und Simulationen richtig sind. 
@@ -554,7 +555,7 @@ Der Verlauf der statischen Kennlinie ist abhängig vom Übertragungsverhalten de
 Da es sich bei unserem System um ein System mit proportionalen Übertragungsverhalten handelt, entspricht die statische Verstärkung $\mathcal{K} = G(0)$ bzw. $\mathcal{K} = \lim_{t\to \infty} h(t)$. Diese lässt sich in Matlab auch mit dem Befehl \texttt{dcgain(sys)} berechnen. \\
 Somit ergibt sich bei unserem System eine Ursprungsgerade der Steigung 1 als statische Kennlinie. 
 
-In weniger trivialen Fällen lässt sich die statische Kennlinie folgendermaßen aufnehmen: Man stellt einen konstanten Wert $c$ für $u(t)$ ein, wartet bis alle Eigenvorgänge abgeklungen sind und liest dann den zugehörigen y-Wert ab. Dies wiederholt man für verschiedene $c$ und verbindet schließlich alle Punkte durch eine Line, welche letztendlich die statische Kennlinie darstellt. Dieses Verfahren erklärt, wieso bei instabilen System keine statische Kennlinie gezeichnet werden kann: Diese schwingen sich nie ein, die Eigenvorgänge klingen nie ab.
+In weniger trivialen Fällen lässt sich die statische Kennlinie folgendermaßen aufnehmen: Man stellt einen konstanten Wert $c$ für $u(t)$ ein, wartet bis alle Eigenvorgänge abgeklungen sind und liest dann den zugehörigen y-Wert ab. Dies wiederholt man für verschiedene $c$ und verbindet schließlich alle Punkte durch eine Linie, welche letztendlich die statische Kennlinie darstellt. Dieses Verfahren erklärt, wieso bei instabilen System keine statische Kennlinie gezeichnet werden kann: Diese schwingen sich nie ein, die Eigenvorgänge klingen nie ab.
 
 Noch ein anderer Weg, die statische Verstärkungsmatrix $K$ auszurechnen (im mehrvariablen Fall ist $K$ eine Matrix, die die jeweiligen statischen Verstärkung der einzelnen Eingangssignale angibt), verwendet die Zustandsmatrizen. \\
 Dabei wird die Ableitung von $x$ gleich 0 gesetzt, die Gleichung umgestellt, und in die Gleichung von $y$ eingesetzt. Stellt man diese Gleichung erneut um, erhält man K:
@@ -581,17 +582,17 @@ Bei Systemen mit einem Eingang und zwei Ausgängen verwendet man stattdessen ein
 
 Der Nachteil der statischen Kennlinie ist, dass sie im Gegensatz zum Pol-Nullstellen-Plot keine Dynamik-Informationen enthält.
 
-\subsection{Pol-Nulstellen-Plot}
-Abbildung 15 zeigt den Pol-Nulstellen-Plot zu unserem System. Der passende Matlab-Befehl hierfür lautet \texttt{pzplot(sys)}. Matlab markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems (doppelte Polstellen mit doppel-\textbf{x}).
+\subsection{Pol-Nullstellen-Plot}
+Abbildung 15 zeigt den Pol-Nullstellen-Plot zu unserem System. Der passende Matlab-Befehl hierfür lautet \texttt{pzplot(sys)}. Matlab markiert mit \textbf{o} die Nullstellen und mit \textbf{x} die Polstellen des Systems (doppelte Polstellen mit doppel-\textbf{x}).
 
-In unserem Fall hat das System aber keine Nulstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei $s = -1$, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. 
+In unserem Fall hat das System aber keine Nullstellen, da der Zählergrad 0 ist, weshalb in der Abbildung kein \textbf{o} zu sehen ist. Da der Nenner unseres Systems aber den Grad 1 mit $1 + s$ ist, hat unserer System eine reale Polstelle bei $s = -1$, was in der Abbildung mit den \textbf{x} gekennzeichnet ist. 
 
 Aufgrund dieses negativen Realteils handelt es sich um eine grenzstabile Polstelle. Würden alle Polstellen in der offenen linken Halbebene liegen, wäre das System stabil. Da die Polstelle genau auf der Imaginärachse liegt, nennt man das System grenzstabil.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/PoleZeroPT1Tt.eps}
-    \caption{Pol-Nulstellen-Plot}
+    \caption{Pol-Nullstellen-Plot}
  \end{figure}
 
  Die Pole der Übertragungsfunktion korrespondieren mit den Eigenwerten der System-Matrix $A$ unter der Voraussetzung, dass das System vollständig steuerbar und beobachtbar ist.
