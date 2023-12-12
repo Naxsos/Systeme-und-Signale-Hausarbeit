@@ -175,7 +175,8 @@ In unserem System mit $T_t = 2$ bedeutet das:
     \end{bmatrix}u(t - 2)
 \end{align*}
 
-Anhand der Matrix $D$, die in unserem System eine Nullmatrix ist, lässt sich ablesen, dass es sich hier um ein nicht-sprungfähiges System handelt.
+Anhand der Matrix $D$, die in unserem System eine Nullmatrix ist, lässt sich ablesen, dass es sich hier um ein nicht-sprungfähiges System handelt.\\ 
+Außerdem ist ein System stabil, wenn die Eigenwerte der Matrix $A$ einen negativen Realteil bestizen. Da die Eigenwerte bei unserem System $\lambda = -1$ sind, ist das hier der Fall.
 
 Ohne Matlab kann die Zustandsraumdarstellung in einfachen Fällen mithilfe des Substitutionstricks aus der Übertragungsfunktion errechnet werden. Für Systeme, bei denen auch $\dot u, \ddot u, \ldots$ in der Differentialgleichung vorkommt, ist das Ganze ein bisschen komplizierter, wird aber in \href{https://de.wikipedia.org/wiki/Zustandsraumdarstellung#Regelungsnormalform}{Wikipedia} beschrieben und kann entsprechend angewendet werden. Bei sprungfähigen Systemen sieht das noch etwas anders aus und es muss erst eine Polynomdivision gemacht werden, um $D$ zu erhalten. Im Mehrgrößenfall ist es noch komplizierter.
 
@@ -394,7 +395,7 @@ Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl inte
 \end{align*}
 
 \subsubsection{Simulink-Simulation}
-Mithilfe von Simulink lässt sich die Übergangsfunktion simulieren. Die Schaltungen zeigen den Aufbau mit einem Sinus-Signal als Eingang.
+Mithilfe von Simulink lässt sich die Übertragungsfunktion simulieren. Die Schaltungen zeigen den Aufbau mit einem Sinus-Signal als Eingang.
 Dabei werden verschiedene Blöcke aus der Simulink-Bibliothek verwendet:
 \begin{enumerate}
     \item Sin Wave (Source-Ordner)
@@ -410,7 +411,7 @@ Eine Möglichkeit besteht darin, in den Block \enquote{Transfer Function} die Ü
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/SimulinkEinfach.png}
-    \caption{Darstellung des Systems anhand der Übergangsfunktion}
+    \caption{Darstellung des Systems anhand der Übertragungsfunktion}
  \end{figure}
 Die andere Möglichkeit ist, das System mithilfe von Integratoren darzustellen. Man stellt hierfür die Ein-/Ausgangs-Differentialgleichung nach der höchsten Ableitung um und integriert. Das bringt den Vorteil, dass man für die Integratoren Anfangswerte setzen kann:
 
