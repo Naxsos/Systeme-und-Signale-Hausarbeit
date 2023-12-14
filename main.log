@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.23)  14 DEC 2023 13:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.23)  14 DEC 2023 13:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -605,12 +605,12 @@ $[]$ $[]$
  []
 
 [4] [5]
-Overfull \hbox (32.22166pt too wide) in paragraph at lines 211--222
+Overfull \hbox (32.22166pt too wide) in paragraph at lines 213--224
 $[]$ $[]$ 
  []
 
 
-Overfull \hbox (32.22166pt too wide) in paragraph at lines 225--244
+Overfull \hbox (32.22166pt too wide) in paragraph at lines 227--246
 $[]$ $[]$ 
  []
 
@@ -622,12 +622,12 @@ Package epstopdf Info: Source file: <Bilder/ImpulsAntwortPT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:45:35
 (epstopdf)                    size: 73131 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf Bilder/ImpulsAntwortPT1Tt.eps>
-(epstopdf)             \includegraphics on input line 299.
+(epstopdf)             \includegraphics on input line 301.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf, id=187, 562.1pt x 421.575pt>
 File: Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf  used on input line 299.
+Package pdftex.def Info: Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf  used on input line 301.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
  [7 <./Bilder/ImpulsAntwortPT1Tt-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Bilder/SprungantwortPT1Tt.eps>
@@ -637,12 +637,12 @@ Package epstopdf Info: Source file: <Bilder/SprungantwortPT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:47:06
 (epstopdf)                    size: 70829 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/SprungantwortPT1Tt-eps-converted-to.pdf Bilder/SprungantwortPT1Tt.eps>
-(epstopdf)             \includegraphics on input line 321.
+(epstopdf)             \includegraphics on input line 323.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/SprungantwortPT1Tt-eps-converted-to.pdf, id=199, 562.1pt x 421.575pt>
 File: Bilder/SprungantwortPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/SprungantwortPT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/SprungantwortPT1Tt-eps-converted-to.pdf  used on input line 321.
+Package pdftex.def Info: Bilder/SprungantwortPT1Tt-eps-converted-to.pdf  used on input line 323.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
 Package epstopdf Info: Source file: <Bilder/NyquistPT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:47:41
@@ -651,18 +651,18 @@ Package epstopdf Info: Source file: <Bilder/NyquistPT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:49:24
 (epstopdf)                    size: 129455 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/NyquistPT1Tt-eps-converted-to.pdf Bilder/NyquistPT1Tt.eps>
-(epstopdf)             \includegraphics on input line 356.
+(epstopdf)             \includegraphics on input line 358.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/NyquistPT1Tt-eps-converted-to.pdf, id=200, 562.1pt x 421.575pt>
 File: Bilder/NyquistPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/NyquistPT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/NyquistPT1Tt-eps-converted-to.pdf  used on input line 356.
+Package pdftex.def Info: Bilder/NyquistPT1Tt-eps-converted-to.pdf  used on input line 358.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
  [8 <./Bilder/SprungantwortPT1Tt-eps-converted-to.pdf>]
 <Bilder/NyquistCursorPT1Tt.png, id=211, 679.53876pt x 498.86375pt>
 File: Bilder/NyquistCursorPT1Tt.png Graphic file (type png)
 <use Bilder/NyquistCursorPT1Tt.png>
-Package pdftex.def Info: Bilder/NyquistCursorPT1Tt.png  used on input line 364.
+Package pdftex.def Info: Bilder/NyquistCursorPT1Tt.png  used on input line 366.
 (pdftex.def)             Requested size: 239.00557pt x 175.45747pt.
 Package epstopdf Info: Source file: <Bilder/BodePT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:49:52
@@ -671,38 +671,38 @@ Package epstopdf Info: Source file: <Bilder/BodePT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:49:57
 (epstopdf)                    size: 11472 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/BodePT1Tt-eps-converted-to.pdf Bilder/BodePT1Tt.eps>
-(epstopdf)             \includegraphics on input line 379.
+(epstopdf)             \includegraphics on input line 381.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/BodePT1Tt-eps-converted-to.pdf, id=212, 562.1pt x 421.575pt>
 File: Bilder/BodePT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/BodePT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/BodePT1Tt-eps-converted-to.pdf  used on input line 379.
+Package pdftex.def Info: Bilder/BodePT1Tt-eps-converted-to.pdf  used on input line 381.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
  [9 <./Bilder/NyquistPT1Tt-eps-converted-to.pdf> <./Bilder/NyquistCursorPT1Tt.png>]
 <Bilder/SimulinkEinfach.png, id=225, 815.045pt x 263.98625pt>
 File: Bilder/SimulinkEinfach.png Graphic file (type png)
 <use Bilder/SimulinkEinfach.png>
-Package pdftex.def Info: Bilder/SimulinkEinfach.png  used on input line 413.
+Package pdftex.def Info: Bilder/SimulinkEinfach.png  used on input line 415.
 (pdftex.def)             Requested size: 318.67207pt x 103.21603pt.
  [10 <./Bilder/BodePT1Tt-eps-converted-to.pdf>]
-Overfull \hbox (2.21758pt too wide) in paragraph at lines 416--417
+Overfull \hbox (2.21758pt too wide) in paragraph at lines 418--419
 \T1/cmr/m/n/10 griert. Das bringt den Vor-teil, dass man für die In-te-gra-to-ren An-fangs-wer-te set-zen kann: 
  []
 
 <Bilder/SimulinkKomplex.png, id=246, 744.7825pt x 253.94875pt>
 File: Bilder/SimulinkKomplex.png Graphic file (type png)
 <use Bilder/SimulinkKomplex.png>
-Package pdftex.def Info: Bilder/SimulinkKomplex.png  used on input line 421.
+Package pdftex.def Info: Bilder/SimulinkKomplex.png  used on input line 423.
 (pdftex.def)             Requested size: 318.67207pt x 108.66109pt.
 <Bilder/SimulinkOmega2.png, id=247, 1514.65875pt x 999.735pt>
 File: Bilder/SimulinkOmega2.png Graphic file (type png)
 <use Bilder/SimulinkOmega2.png>
-Package pdftex.def Info: Bilder/SimulinkOmega2.png  used on input line 431.
+Package pdftex.def Info: Bilder/SimulinkOmega2.png  used on input line 433.
 (pdftex.def)             Requested size: 179.25113pt x 118.30025pt.
 <Bilder/SimulinkOmega6.png, id=248, 1514.65875pt x 999.735pt>
 File: Bilder/SimulinkOmega6.png Graphic file (type png)
 <use Bilder/SimulinkOmega6.png>
-Package pdftex.def Info: Bilder/SimulinkOmega6.png  used on input line 436.
+Package pdftex.def Info: Bilder/SimulinkOmega6.png  used on input line 438.
 (pdftex.def)             Requested size: 179.25113pt x 118.30025pt.
 [11 <./Bilder/SimulinkEinfach.png> <./Bilder/SimulinkKomplex.png> <./Bilder/SimulinkOmega2.png> <./Bilder/SimulinkOmega6.png>]
 Package epstopdf Info: Source file: <Bilder/bodeMitZeichen.eps>
@@ -712,23 +712,23 @@ Package epstopdf Info: Source file: <Bilder/bodeMitZeichen.eps>
 (epstopdf)                    date: 2023-12-07 20:17:59
 (epstopdf)                    size: 116665 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/bodeMitZeichen-eps-converted-to.pdf Bilder/bodeMitZeichen.eps>
-(epstopdf)             \includegraphics on input line 488.
+(epstopdf)             \includegraphics on input line 490.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/bodeMitZeichen-eps-converted-to.pdf, id=259, 1566.85374pt x 990.70125pt>
 File: Bilder/bodeMitZeichen-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/bodeMitZeichen-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/bodeMitZeichen-eps-converted-to.pdf  used on input line 488.
+Package pdftex.def Info: Bilder/bodeMitZeichen-eps-converted-to.pdf  used on input line 490.
 (pdftex.def)             Requested size: 318.67207pt x 201.49268pt.
  [12]
 <Bilder/Simulink-Amplitude.png, id=264, 1514.65875pt x 999.735pt>
 File: Bilder/Simulink-Amplitude.png Graphic file (type png)
 <use Bilder/Simulink-Amplitude.png>
-Package pdftex.def Info: Bilder/Simulink-Amplitude.png  used on input line 509.
+Package pdftex.def Info: Bilder/Simulink-Amplitude.png  used on input line 511.
 (pdftex.def)             Requested size: 239.00557pt x 157.74893pt.
 <Bilder/SimulinkPhase.png, id=265, 1514.65875pt x 999.735pt>
 File: Bilder/SimulinkPhase.png Graphic file (type png)
 <use Bilder/SimulinkPhase.png>
-Package pdftex.def Info: Bilder/SimulinkPhase.png  used on input line 516.
+Package pdftex.def Info: Bilder/SimulinkPhase.png  used on input line 518.
 (pdftex.def)             Requested size: 239.00557pt x 157.74893pt.
  [13 <./Bilder/bodeMitZeichen-eps-converted-to.pdf> <./Bilder/Simulink-Amplitude.png>] [14 <./Bilder/SimulinkPhase.png>]
 Package epstopdf Info: Source file: <Bilder/StaticCurvePT1Tt.eps>
@@ -738,12 +738,12 @@ Package epstopdf Info: Source file: <Bilder/StaticCurvePT1Tt.eps>
 (epstopdf)                    date: 2023-12-02 12:12:00
 (epstopdf)                    size: 5775 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/StaticCurvePT1Tt-eps-converted-to.pdf Bilder/StaticCurvePT1Tt.eps>
-(epstopdf)             \includegraphics on input line 581.
+(epstopdf)             \includegraphics on input line 583.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/StaticCurvePT1Tt-eps-converted-to.pdf, id=283, 562.1pt x 421.575pt>
 File: Bilder/StaticCurvePT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/StaticCurvePT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/StaticCurvePT1Tt-eps-converted-to.pdf  used on input line 581.
+Package pdftex.def Info: Bilder/StaticCurvePT1Tt-eps-converted-to.pdf  used on input line 583.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
  [15 <./Bilder/StaticCurvePT1Tt-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Bilder/PoleZeroPT1Tt.eps>
@@ -753,12 +753,12 @@ Package epstopdf Info: Source file: <Bilder/PoleZeroPT1Tt.eps>
 (epstopdf)                    date: 2023-11-21 10:50:31
 (epstopdf)                    size: 41857 bytes
 (epstopdf)             Command: <repstopdf --outfile=Bilder/PoleZeroPT1Tt-eps-converted-to.pdf Bilder/PoleZeroPT1Tt.eps>
-(epstopdf)             \includegraphics on input line 598.
+(epstopdf)             \includegraphics on input line 600.
 Package epstopdf Info: Output file is already uptodate.
 <Bilder/PoleZeroPT1Tt-eps-converted-to.pdf, id=294, 562.1pt x 421.575pt>
 File: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf Graphic file (type pdf)
 <use Bilder/PoleZeroPT1Tt-eps-converted-to.pdf>
-Package pdftex.def Info: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf  used on input line 598.
+Package pdftex.def Info: Bilder/PoleZeroPT1Tt-eps-converted-to.pdf  used on input line 600.
 (pdftex.def)             Requested size: 318.67207pt x 239.00082pt.
 ) [16 <./Bilder/PoleZeroPT1Tt-eps-converted-to.pdf>] (./main.aux (./system.aux))
 
@@ -770,13 +770,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  17065 strings out of 478268
  288720 string characters out of 5846347
- 638413 words of memory out of 5000000
+ 637413 words of memory out of 5000000
  34916 multiletter control sequences out of 15000+600000
  481137 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,16n,92p,768b,410s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (16 pages, 1058742 bytes).
+Output written on main.pdf (16 pages, 1058616 bytes).
 PDF statistics:
  401 PDF objects out of 1000 (max. 8388607)
  300 compressed objects within 3 object streams

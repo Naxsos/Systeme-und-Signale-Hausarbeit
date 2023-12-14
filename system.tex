@@ -199,8 +199,10 @@ Darüber hinaus gibt es einen Zusammenhang mit der Ein-/Ausgangs-Differentialgle
 
 Weiterhin gehen wir bei unserem System davon aus, dass der Tank zu Beginn leer ist, somit kein Abfluss vorliegt. Daraus ergibt sich $x(0^-) = 0$ und mit voriger Formel gilt:
 \begin{align*}
-    \left(\begin{array}{c} y \\ \dot y \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right) \\
-    \left(\begin{array}{c} x_1 \\ x_2 \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right)
+    %\left(\begin{array}{c} y \\ \dot y \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right) \\
+    %\left(\begin{array}{c} x_1 \\ x_2 \end{array}\right) &= \left(\begin{array}{c}0\\0\end{array}\right)
+    y &= 0 \\
+    x_1 &= 0
 \end{align*}
 
 
@@ -368,7 +370,7 @@ Matlab zeigt die Kurve des Frequenzgangs $G(j\omega)$ immer für $\omega$ zwisch
  
 \subsubsection{Bode-Diagramm}
 Im Bode-Diagramm sind der Betrag des Frequenzgangs über $\omega$ in Dezibel ($dB$) und die Phase des Frequenzgangs über $\omega$ in Grad ($^\circ$) dargestellt.\\
-Streng genommen wird im oberen Diagramm der Abbildung 6 die Amplitudenverstärkung dargestellt, die ein Sinus-Signal an der Frequenz $\omega$ stationär erfährt (wenn die Eigenvorgänge abgeklungen sind und sich das System ein geschwungen hat), während im unteren Diagramm die Phasenverschiebung zu sehen ist.  
+Streng genommen wird im oberen Diagramm der Abbildung 6 die Amplitudenverstärkung dargestellt, die ein Sinus-Signal an der Frequenz $\omega$ stationär erfährt (wenn die Eigenvorgänge abgeklungen sind und sich das System eingeschwungen hat), während im unteren Diagramm die Phasenverschiebung zu sehen ist.  
 
 Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl intern eine doppelt logarithmische Darstellung verwendet. Die Diagramm-Achse, auf der $\omega$ aufgetragen ist, ist dabei logarithmisch skaliert, damit die Kurven schön aussehen.
 
@@ -381,7 +383,7 @@ Der dazugehörige Matlab-Befehl ist \texttt{bode(sys)}, wobei dieser Befehl inte
  \end{figure}
 
  Anhand des Verlaufs zu Beginn des Bode-Plots lässt sich das Übertragungsverhalten feststellen. Beim P-Verhalten startet der Verlauf mit eine waagerechten Geraden, beim I-Verhalten mit einer Geraden mit negativer Steigung und beim D-Verhalten mit einer Geraden mit positiver Steigung. 
- In unserem Bode-Plot ist eine waagerechte Linie zu erkennen, was mit dem P-Verhalten unseres System korrespondiert.
+ In unserem Bode-Plot ist eine waagerechte Linie zu erkennen, was mit dem P-Verhalten unseres Systems korrespondiert.
 
  Außerdem lässt sich aus dem Beginn des Bode-Diagramms auch die Statik-Information entnehmen: Hierfür betrachtet man den Wert $D$, den der Bode-Plot an der Stelle $f = 0$ hat. Aufgrund der logarithmischen Darstellung gibt es im Bode-Plot kein $f = 0$, jedoch ist es für uns ausreichend, den kleinsten Wert ($f = 10^{-2}$) zu betrachten. \\
  Nun nutzt man die Formel für die Dämpfung und stellt diese um:
